@@ -1,0 +1,64 @@
+package DragDropD2011;
+
+{$R *.res}
+{$R '..\Source\DragDrop.dcr'}
+{$R '..\Source\DragDropContext.dcr'}
+{$R '..\Source\DragDropFile.dcr'}
+{$R '..\Source\DragDropGraphics.dcr'}
+{$R '..\Source\DragDropHandler.dcr'}
+{$R '..\Source\DragDropInternet.dcr'}
+{$R '..\Source\DragDropPIDL.dcr'}
+{$R '..\Source\DragDropText.dcr'}
+{$R '..\Source\DropComboTarget.dcr'}
+{$R '..\Source\DropHandler.dcr'}
+{$R '..\Source\DropSource.dcr'}
+{$R '..\Source\DropTarget.dcr'}
+{$ALIGN 4}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA OFF}
+{$IOCHECKS OFF}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS ON}
+{$RANGECHECKS ON}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS ON}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $456789}
+{$DESCRIPTION 'Drag and Drop Component Suite'}
+{$DESIGNONLY}
+{$IMPLICITBUILD OFF}
+{$DEFINE DEBUG}
+{$DEFINE DESIGNTIME}
+
+requires
+  designide,
+  rtl;
+
+contains
+  DragDrop in '..\Source\DragDrop.pas',
+  DragDropComObj in '..\Source\DragDropComObj.pas',
+  DragDropContext in '..\Source\DragDropContext.pas',
+  DragDropDesign in '..\Source\DragDropDesign.pas',
+  DragDropFile in '..\Source\DragDropFile.pas',
+  DragDropFormats in '..\Source\DragDropFormats.pas',
+  DragDropGraphics in '..\Source\DragDropGraphics.pas',
+  DragDropHandler in '..\Source\DragDropHandler.pas',
+  DragDropInternet in '..\Source\DragDropInternet.pas',
+  DragDropPIDL in '..\Source\DragDropPIDL.pas',
+  DragDropText in '..\Source\DragDropText.pas',
+  DropComboTarget in '..\Source\DropComboTarget.pas',
+  DropHandler in '..\Source\DropHandler.pas',
+  DropSource in '..\Source\DropSource.pas',
+  DropTarget in '..\Source\DropTarget.pas';
+
+end.

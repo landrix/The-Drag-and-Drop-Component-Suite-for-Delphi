@@ -1,0 +1,156 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{DA670E20-1A51-4D6C-8D38-DDB72348B362}</ProjectGuid>
+			<MainSource>DragDropD2010.dpk</MainSource>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+			<ProjectVersion>12.0</ProjectVersion>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Basis' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_IntegerOverflowCheck>true</DCC_IntegerOverflowCheck>
+			<GenPackage>true</GenPackage>
+			<DesignOnlyPackage>false</DesignOnlyPackage>
+			<DCC_DependencyCheckOutputName>..\Library\D2010\%Config%\DragDropD2010.bpl</DCC_DependencyCheckOutputName>
+			<DCC_ImportedDataReferences>false</DCC_ImportedDataReferences>
+			<DCC_Alignment>4</DCC_Alignment>
+			<DCC_OutputNeverBuildDcps>true</DCC_OutputNeverBuildDcps>
+			<DCC_DcpOutput>..\Library\D2010\$(Config)</DCC_DcpOutput>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_BplOutput>..\Library\D2010\$(Config)</DCC_BplOutput>
+			<DCC_UnitSearchPath>..\Library\D2010\$(Config);$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<GenDll>true</GenDll>
+			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+			<DCC_TypedAtParameter>true</DCC_TypedAtParameter>
+			<DCC_Description>Drag and Drop Component Suite</DCC_Description>
+			<DCC_IOChecking>false</DCC_IOChecking>
+			<DCC_RangeChecking>true</DCC_RangeChecking>
+			<DCC_Optimize>false</DCC_Optimize>
+			<DCC_UNIT_PLATFORM>false</DCC_UNIT_PLATFORM>
+			<DCC_ExeOutput>d:\test\landrixhandwerkpro\bin</DCC_ExeOutput>
+			<DCC_DcuOutput>..\Library\D2010\$(Config)</DCC_DcuOutput>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;WinTypes=Windows;WinProcs=Windows;WinTypes=Windows;WinProcs=Windows;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_ImageBase>00456789</DCC_ImageBase>
+			<DCC_Platform>x86</DCC_Platform>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_ExeOutput>D:\projekte\src_lnxa6_install\Image_LandrixHandwerkPro\BIN</DCC_ExeOutput>
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="DragDropD2010.dpk">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="..\Source\DragDrop.dcr"/>
+			<DCCReference Include="..\Source\DragDropContext.dcr"/>
+			<DCCReference Include="..\Source\DragDropFile.dcr"/>
+			<DCCReference Include="..\Source\DragDropGraphics.dcr"/>
+			<DCCReference Include="..\Source\DragDropHandler.dcr"/>
+			<DCCReference Include="..\Source\DragDropInternet.dcr"/>
+			<DCCReference Include="..\Source\DragDropPIDL.dcr"/>
+			<DCCReference Include="..\Source\DragDropText.dcr"/>
+			<DCCReference Include="..\Source\DropComboTarget.dcr"/>
+			<DCCReference Include="..\Source\DropHandler.dcr"/>
+			<DCCReference Include="..\Source\DropSource.dcr"/>
+			<DCCReference Include="..\Source\DropTarget.dcr"/>
+			<DCCReference Include="designide.dcp"/>
+			<DCCReference Include="rtl.dcp"/>
+			<DCCReference Include="..\Source\DragDrop.pas"/>
+			<DCCReference Include="..\Source\DragDropComObj.pas"/>
+			<DCCReference Include="..\Source\DragDropContext.pas"/>
+			<DCCReference Include="..\Source\DragDropDesign.pas"/>
+			<DCCReference Include="..\Source\DragDropFile.pas"/>
+			<DCCReference Include="..\Source\DragDropFormats.pas"/>
+			<DCCReference Include="..\Source\DragDropGraphics.pas"/>
+			<DCCReference Include="..\Source\DragDropHandler.pas"/>
+			<DCCReference Include="..\Source\DragDropInternet.pas"/>
+			<DCCReference Include="..\Source\DragDropPIDL.pas"/>
+			<DCCReference Include="..\Source\DragDropText.pas"/>
+			<DCCReference Include="..\Source\DropComboTarget.pas"/>
+			<DCCReference Include="..\Source\DropHandler.pas"/>
+			<DCCReference Include="..\Source\DropSource.pas"/>
+			<DCCReference Include="..\Source\DropTarget.pas"/>
+			<BuildConfiguration Include="Basis">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType>Package</Borland.ProjectType>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">DragDropD2010.dpk</Source>
+					</Source>
+					<Parameters>
+						<Parameters Name="RunParams">Standard ##</Parameters>
+						<Parameters Name="UseLauncher">False</Parameters>
+						<Parameters Name="LoadAllSymbols">True</Parameters>
+						<Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+					</Parameters>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1031</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">Anders Melander</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">Drag and Drop Component Suite</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName">DragDrop</VersionInfoKeys>
+						<VersionInfoKeys Name="OriginalFilename">DragDrop</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductName">DragDrop</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments">This is freeware. Use as you please, but please give me credit.</VersionInfoKeys>
+						<VersionInfoKeys Name="mailto">anders@melander.dk</VersionInfoKeys>
+						<VersionInfoKeys Name="URL">http://melander.dk</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Last Compile">2013-09-23 09:06</VersionInfoKeys>
+					</VersionInfoKeys>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDS)\bin\dcloffice2k140.bpl">Microsoft Office 2000 Beispiele für gekapselte Komponenten für Automation Server</Excluded_Packages>
+						<Excluded_Packages Name="$(BDS)\bin\dclofficexp140.bpl">Microsoft Office XP Beispiele für gekapselte Komponenten für Automation Server</Excluded_Packages>
+					</Excluded_Packages>
+				</Delphi.Personality>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

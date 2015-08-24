@@ -1,0 +1,61 @@
+package DragDropD5;
+
+{$R *.RES}
+{$R '..\Source\DragDrop.dcr'}
+{$R '..\Source\DropSource.dcr'}
+{$R '..\Source\DropTarget.dcr'}
+{$R '..\Source\DragDropText.dcr'}
+{$R '..\Source\DragDropFile.dcr'}
+{$R '..\Source\DragDropGraphics.dcr'}
+{$R '..\Source\DragDropPIDL.dcr'}
+{$R '..\Source\DragDropInternet.dcr'}
+{$R '..\Source\DropComboTarget.dcr'}
+{$R '..\Source\DragDropHandler.dcr'}
+{$R '..\Source\DragDropContext.dcr'}
+{$R '..\Source\DropHandler.dcr'}
+{$ALIGN ON}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS OFF}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS ON}
+{$RANGECHECKS ON}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS ON}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $410000}
+{$DESCRIPTION 'Drag and Drop Component Suite'}
+{$DESIGNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  Vcl50;
+
+contains
+  DropSource in '..\Source\DropSource.pas',
+  DropTarget in '..\Source\DropTarget.pas',
+  DragDropPIDL in '..\Source\DragDropPIDL.pas',
+  DragDropFormats in '..\Source\DragDropFormats.pas',
+  DragDropFile in '..\Source\DragDropFile.pas',
+  DragDropText in '..\Source\DragDropText.pas',
+  DragDrop in '..\Source\DragDrop.pas',
+  DragDropGraphics in '..\Source\DragDropGraphics.pas',
+  DragDropInternet in '..\Source\DragDropInternet.pas',
+  DropComboTarget in '..\Source\DropComboTarget.pas',
+  DragDropDesign in '..\Source\DragDropDesign.pas',
+  DragDropHandler in '..\Source\DragDropHandler.pas',
+  DragDropComObj in '..\Source\DragDropComObj.pas',
+  DragDropContext in '..\Source\DragDropContext.pas',
+  DropHandler in '..\Source\DropHandler.pas';
+
+end.

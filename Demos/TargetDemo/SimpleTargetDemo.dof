@@ -1,0 +1,6 @@
+[FileVersion]
+Version=7.0
+[Directories]
+OutputDir=.
+UnitOutputDir=.
+SearchPath=..\..\Source
