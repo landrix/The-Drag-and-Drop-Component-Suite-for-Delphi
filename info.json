@@ -5,12 +5,6 @@
     "package_compiler_max": 29,
     "compiler_min": 22,
     "compiler_max": 29,
-    "first_version": "v5.8",
-    "dependencies":
-     [
-       {
-         "id": "{81DDB2C5-4528-4974-8E89-C13D755E8BC0}",
-         "version_min": "v5.8"
-       }
+    "first_version": "v5.8"
      ]
 }
