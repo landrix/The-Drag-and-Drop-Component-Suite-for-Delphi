@@ -1,4 +1,4 @@
-The new Drag and Drop Component Suite for Delphi
+The Drag and Drop Component Suite for Delphi
 ================================================
 
 This component suite based on  
@@ -7,11 +7,10 @@ from Anders Melander
 http://melander.dk/delphi/dragdrop  
 
 The new Drag and Drop Component Suite Version 5.8  
-Released 21-apr-2015  
+Released 24-aug-2015  
 © 1997-2010 Anders Melander  
 © 2011-2015 Sven Harazim  
-https://github.com/landrix/The-new-Drag-and-Drop-Component-Suite-for-Delphi  
-https://github.com/DelphiPraxis/The-new-Drag-and-Drop-Component-Suite-for-Delphi  
+https://github.com/DelphiPraxis/The-Drag-and-Drop-Component-Suite-for-Delphi  
 
 ## Table of Contents
 1. Supported platforms

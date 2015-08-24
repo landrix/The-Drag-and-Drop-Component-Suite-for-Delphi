@@ -2515,5 +2515,7 @@ finalization
 
   if (NeedOleUninitialize) then
     OleUninitialize;
+  // The boolean must be reset to false
+  DragDropShutdown := False;
 end.
 
