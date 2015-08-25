@@ -57,6 +57,7 @@
         <DesignOnlyPackage>true</DesignOnlyPackage>
         <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
         <DCC_OutputNeverBuildDcps>true</DCC_OutputNeverBuildDcps>
+        <DCC_DebugInformation>true</DCC_DebugInformation>
         <DCC_DcpOutput>..\Library\Delphi 2011</DCC_DcpOutput>
         <DCC_BplOutput>..\Library\Delphi 2011</DCC_BplOutput>
         <DCC_DcuOutput>..\Library\Delphi 2011</DCC_DcuOutput>
@@ -78,7 +79,7 @@
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
         <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
-        <DCC_DebugInformation>0</DCC_DebugInformation>
+        <DCC_DebugInformation>false</DCC_DebugInformation>
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
