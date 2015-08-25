@@ -57,7 +57,6 @@
         <DesignOnlyPackage>true</DesignOnlyPackage>
         <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
         <DCC_OutputNeverBuildDcps>true</DCC_OutputNeverBuildDcps>
-        <DCC_DebugInformation>1</DCC_DebugInformation>
         <DCC_DcpOutput>..\Library\Delphi 2011</DCC_DcpOutput>
         <DCC_BplOutput>..\Library\Delphi 2011</DCC_BplOutput>
         <DCC_DcuOutput>..\Library\Delphi 2011</DCC_DcuOutput>
