@@ -35,6 +35,41 @@
 	"projects":
 	[
 		{
+			"project": "Packages\\DragDropD6.dproj",
+			"compiler_min": 14,
+			"compiler_max": 14
+		},
+
+		{
+			"project": "Packages\\DragDropD7.dproj",
+			"compiler_min": 15,
+			"compiler_max": 15
+		},
+		
+		{
+			"project": "Packages\\DragDropD2006.dproj",
+			"compiler_min": 18,
+			"compiler_max": 18
+		},
+
+		{
+			"project": "Packages\\DragDropD2007.dproj",
+			"compiler_min": 18.5,
+			"compiler_max": 18.5
+		},
+			
+		{
+			"project": "Packages\\DragDropD2009.dproj",
+			"compiler_min": 20,
+			"compiler_max": 20
+		},		
+		
+		{
+			"project": "Packages\\DragDropD2010.dproj",
+			"compiler_min": 21,
+			"compiler_max": 21
+		},
+		{
 			"project": "Packages\\DragDropD2011.dproj",
 			"compiler_min": 22,
 			"compiler_max": 22
