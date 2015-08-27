@@ -1,9 +1,10 @@
 {
     "id": "{81DDB2C5-4528-4974-8E89-C13D755E8BC0}",
     "picture": "Logo.jpg",
+    "license_type": "MIT",
+    "license_file": "LICENSE",
     "package_compiler_min": 22,
     "package_compiler_max": 29,
     "compiler_min": 22,
-    "compiler_max": 29,
-    "first_version": "v5.8"
+    "compiler_max": 29  
 }
