@@ -80,6 +80,11 @@
 			"project": "Packages\\DragDropDXE8Group.groupproj",
 			"compiler_min": 29,
 			"compiler_max": 29
+		},
+				{
+			"project": "Packages\\DragDropDR10SGroup.groupproj",
+			"compiler_min":30,
+			"compiler_max": 30
 		}
     ]
 }
