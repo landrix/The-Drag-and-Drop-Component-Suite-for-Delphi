@@ -720,7 +720,9 @@ begin
     try
       // see http://msdn.microsoft.com/en-us/library/windows/desktop/bb759778%28v=vs.85%29.aspx
       DragBitmap.PixelFormat := pfDevice;
+      {$if CompilerVersion >= 20.0}
       DragBitmap.AlphaFormat := afDefined; // make sure alpha channel is not pre-multiplied
+      {$ifend}
 
       // TImageList.GetBitmap uses TImageList.Draw to extract the bitmap so we
       // must clear the destination bitmap before extraction.
