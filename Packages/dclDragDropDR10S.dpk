@@ -40,7 +40,7 @@ package dclDragDropDR10S;
 {$ENDIF IMPLICITBUILDING}
 {$DESCRIPTION 'Drag and Drop Component Suite'}
 {$DESIGNONLY}
-{$IMPLICITBUILD OFF}
+{$IMPLICITBUILD ON}
 
 requires
   designide,

@@ -27,7 +27,7 @@ package DragDropDR10S;
 {$ENDIF IMPLICITBUILDING}
 {$DESCRIPTION 'Drag and Drop Component Suite'}
 {$RUNONLY}
-{$IMPLICITBUILD OFF}
+{$IMPLICITBUILD ON}
 
 requires
   rtl,

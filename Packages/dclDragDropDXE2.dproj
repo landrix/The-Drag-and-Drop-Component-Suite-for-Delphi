@@ -121,9 +121,6 @@
 						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
 						<VersionInfoKeys Name="Comments"/>
 					</VersionInfoKeys>
-					<Excluded_Packages>
-						<Excluded_Packages Name="D:\Delphi Lib\Delphi XE2\bpl\Win32\DragDropDXE2.bpl">File D:\Delphi Lib\Delphi XE2\bpl\Win32\DragDropDXE2.bpl not found</Excluded_Packages>
-					</Excluded_Packages>
 				</Delphi.Personality>
 				<Deployment/>
 				<Platforms>
