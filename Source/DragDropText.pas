@@ -75,8 +75,6 @@ type
     function HasData: boolean; override;
   end;
 
-  TCustomWideTextClipboardFormat = TCustomUnicodeTextClipboardFormat {$IF CompilerVersion >= 15.0}deprecated {$IF CompilerVersion >= 20.0}'Use TCustomUnicodeTextClipboardFormat instead'{$ifend}{$ifend};
-
 ////////////////////////////////////////////////////////////////////////////////
 //
 //              TCustomTextClipboardFormat
