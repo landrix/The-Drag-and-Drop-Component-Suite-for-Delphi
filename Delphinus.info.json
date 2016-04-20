@@ -4,7 +4,7 @@
     "license_type": "MIT",
     "license_file": "LICENSE",
     "package_compiler_min": 22,
-    "package_compiler_max": 30,
+    "package_compiler_max": 31,
     "compiler_min": 22,
-    "compiler_max": 30  
+    "compiler_max": 31
 }

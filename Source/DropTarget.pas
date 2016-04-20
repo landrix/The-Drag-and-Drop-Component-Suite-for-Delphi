@@ -1492,11 +1492,14 @@ function TCustomDropTarget.SetPasteSucceeded(Effect: LongInt): boolean;
 var
   Medium: TStgMedium;
 begin
+  Result := false;
   with TPasteSucceededClipboardFormat.Create do
     try
       Value := Effect;
       Result := SetData(DataObject, FormatEtc, Medium);
     finally
+      if Result then
+        ReleaseStgMedium(Medium);
       Free;
     end;
 end;
@@ -1505,11 +1508,14 @@ function TCustomDropTarget.SetPerformedDropEffect(Effect: longInt): boolean;
 var
   Medium: TStgMedium;
 begin
+  Result := false;
   with TPerformedDropEffectClipboardFormat.Create do
     try
       Value := Effect;
       Result := SetData(DataObject, FormatEtc, Medium);
     finally
+      if Result then
+        ReleaseStgMedium(Medium);
       Free;
     end;
 end;

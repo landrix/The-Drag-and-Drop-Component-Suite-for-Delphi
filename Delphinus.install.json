@@ -70,7 +70,7 @@
 			"compiler_max": 27
 		},	
 			
-			{
+		{
 			"project": "Packages\\DragDropDXE7Group.groupproj",
 			"compiler_min": 28,
 			"compiler_max": 28
@@ -81,10 +81,17 @@
 			"compiler_min": 29,
 			"compiler_max": 29
 		},
-				{
+
+  	{
 			"project": "Packages\\DragDropDR10SGroup.groupproj",
 			"compiler_min":30,
 			"compiler_max": 30
+		},
+
+		{
+			"project": "Packages\\DragDropDR101BGroup.groupproj",
+			"compiler_min":31,
+			"compiler_max": 31
 		}
     ]
 }

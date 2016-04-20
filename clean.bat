@@ -10,6 +10,7 @@ del /q /s *.local
 del /q /s *.map
 del /q /s *.ico
 del /q /s *.otares
+del /q /s *.stat
 rmdir /Q /S Source\__history
 rmdir /Q /S Packages\__history
 rmdir /Q /S Library\D2010
@@ -18,6 +19,9 @@ rmdir /Q /S Library\DXE4
 rmdir /Q /S Library\DXE5
 rmdir /Q /S Library\DXE6
 rmdir /Q /S Library\DXE7
+rmdir /Q /S Library\DXE8
+rmdir /Q /S Library\DX10S
+rmdir /Q /S Library\DX101B
 
 rmdir /Q /S "Demos\Adapters\__history"
 rmdir /Q /S "Demos\AsyncSource\__history"

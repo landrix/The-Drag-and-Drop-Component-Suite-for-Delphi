@@ -1289,7 +1289,7 @@ begin
       ** below which deals with TOLEStream and TFixedStreamAdapter and insert
       ** the following instead:
       **
-      **   Stream.Seek(0, STREAM_SEEK_SET, LargeInt(nil^));
+      **   Stream.Seek(0, STREAM_SEEK_SET, {$if CompilerVersion < 29}PLargeInt{$else}PUInt64{$ifend}(nil)^);
       *)
       OleStream := TOLEStream.Create(Stream);
       Stream := TFixedStreamAdapter.Create(OleStream, soOwned) as IStream;
