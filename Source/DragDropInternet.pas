@@ -399,9 +399,9 @@ var
   CloseIMsgSession: TCloseIMsgSession = nil;
 
 var
-  MAPI32: HMODULE = 0;
+  MAPI: HMODULE = 0;
 
-procedure LoadMAPI32;
+procedure LoadMAPI;
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -1429,24 +1429,29 @@ end;
 //
 ////////////////////////////////////////////////////////////////////////////////
 const
-  MAPI32DLL = 'mapi32.dll';
+{$IFDEF WIN32}
+  MAPIDLL = 'mapi32.dll';
+{$ENDIF}
+{$IFDEF WIN64}
+  MAPIDLL = 'mapi64.dll';
+{$ENDIF}
 
-procedure LoadMAPI32;
+procedure LoadMAPI;
 
   procedure GetProc(const Name: AnsiString; var Func: pointer);
   begin
-    Func := GetProcAddress(MAPI32, PAnsiChar(Name));
+    Func := GetProcAddress(MAPI, PAnsiChar(Name));
     if (Func = nil) then
       raise Exception.CreateFmt('Failed to get %s entry point for %s: %s',
-        [MAPI32DLL, Name, SysErrorMessage(GetLastError)]);
+        [MAPIDLL, Name, SysErrorMessage(GetLastError)]);
   end;
 
 begin
-  if (MAPI32 = 0) then
+  if (MAPI = 0) then
   begin
-    MAPI32 := SafeLoadLibrary(MAPI32DLL);
-    if (MAPI32 <= HINSTANCE_ERROR) then
-      raise Exception.CreateFmt('%s: %s', [SysErrorMessage(GetLastError), MAPI32DLL]);
+    MAPI := SafeLoadLibrary(MAPIDLL);
+    if (MAPI <= HINSTANCE_ERROR) then
+      raise Exception.CreateFmt('%s: %s', [SysErrorMessage(GetLastError), MAPIDLL]);
     GetProc('MAPIGetDefaultMalloc@0', pointer( @MAPIGetDefaultMalloc));
     GetProc('MAPIInitialize', pointer(@MAPIInitialize));
     GetProc('MAPIUninitialize', pointer(@MAPIUninitialize));
@@ -1472,7 +1477,7 @@ begin
 
   if (FSessionCount = 0) then
   begin
-    LoadMAPI32;
+    LoadMAPI;
     Malloc := IMalloc(MAPIGetDefaultMalloc);
     OleCheck(OpenIMsgSession(Malloc, 0, FSession));
     inc(FSessionCount);
@@ -1548,7 +1553,7 @@ begin
 
   if (FMessages[Index] = nil) then
   begin
-    LoadMAPI32;
+    LoadMAPI;
     BeginSession;
 
     // Get IMessage from IStorage

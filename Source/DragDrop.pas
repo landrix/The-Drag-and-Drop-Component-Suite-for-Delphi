@@ -20,7 +20,7 @@ interface
 
 uses
   {$IF CompilerVersion >= 23.0}
-  System.SysUtils,System.Classes,{$ifdef DEBUG}System.Win.ComObj,{$endif}
+  System.SysUtils,System.Classes,{$ifdef DEBUG}System.Win.ComObj,{$endif}System.Types,
   WinApi.Windows,WinApi.ActiveX,Winapi.Messages,Winapi.MMSystem,Winapi.ShlObj,
   Vcl.Controls,Vcl.Graphics
   {$else}

@@ -10,7 +10,7 @@ uses
   MapiDefs,
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   ExtCtrls, ComCtrls, StdCtrls, DragDrop, DropTarget, DragDropText, ImgList,
-  Menus, ActnList, Actions, Types;
+  Menus, ActnList, Actions, Types, System.ImageList;
 
 type
   TMessage = class(TObject)
@@ -349,7 +349,7 @@ procedure TFormOutlookTarget.FormCreate(Sender: TObject);
 var
   SHFileInfo: TSHFileInfo;
 begin
-  LoadMAPI32;
+  LoadMAPI;
 
   try
     // It appears that for for Win XP and later it is OK to let MAPI call
@@ -358,7 +358,7 @@ begin
 //    if ((Win32MajorVersion shl 16) or Win32MinorVersion < $00050001) then
 //      MapiInit.Flags := MapiInit.Flags or MAPI_NO_COINIT;
 
-    OleCheck(MAPIInitialize(@MapiInit));
+//    OleCheck(MAPIInitialize(@MapiInit));
   except
     on E: Exception do
       ShowMessage(Format('Failed to initialize MAPI: %s', [E.Message]));
@@ -703,8 +703,8 @@ var
   Buffer: array of byte;
   Data: TMemoryStream;
   SourceStream: IStream;
-  Size: integer;
-  Dummy: int64;
+  Size: FixedUInt;
+  Dummy: UInt64;
 const
   BufferSize = 64*1024; // 64Kb
   MaxMessageSize = 256*1024; // 256 Kb
@@ -786,7 +786,7 @@ var
 
   FileName: AnsiString;
   SourceStream, DestStream: IStream;
-  Dummy: int64;
+  Dummy: UInt64;
 
   Msg: IMessage;
 begin
@@ -824,7 +824,7 @@ begin
           // Another way to do it:
           // DestStream := TFixedStreamAdapter.Create(TFileStream.Create(FileName, fmCreate), soOwned);
 
-          SourceStream.CopyTo(DestStream, -1, Dummy, Dummy);
+          SourceStream.CopyTo(DestStream, 0, Dummy, Dummy);
           DestStream := nil;
 
           Execute(String(FileName));
@@ -970,7 +970,7 @@ var
   s: string;
   Size: integer;
   Stream: IStream;
-  Pos: Largeint;
+  Pos: UInt64;
   Msg: IMessage;
   SHFileInfo: TSHFileInfo;
 begin

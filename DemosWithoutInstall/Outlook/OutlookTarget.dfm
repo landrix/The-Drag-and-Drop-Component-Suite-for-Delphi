@@ -240,6 +240,7 @@ object FormOutlookTarget: TFormOutlookTarget
       ScrollBars = ssBoth
       TabOrder = 3
       WantReturns = False
+      Zoom = 100
     end
     object ListViewAttachments: TListView
       Left = 0
