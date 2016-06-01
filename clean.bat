@@ -5,6 +5,7 @@ del /q /s *.cbk
 del /q /s *.drc
 del /q /s *.dsk
 del /q /s *.dsm
+del /q /s *.rsm
 del /q /s *.identcache
 del /q /s *.local
 del /q /s *.map
