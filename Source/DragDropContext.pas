@@ -945,7 +945,7 @@ begin
         begin
           Canvas.Brush.Color := clHighlight;
           Canvas.Font.Color := clHighlightText;
-          Exclude(State, odSelected);
+          //Exclude(State, odSelected); //commented https://github.com/DelphiPraxis/The-Drag-and-Drop-Component-Suite-for-Delphi/issues/25
         end else
         if Win98Plus and (odInactive in State) then
         begin

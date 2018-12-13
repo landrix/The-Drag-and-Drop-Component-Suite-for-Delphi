@@ -11,8 +11,6 @@ uses
 
 type
   TFormOutlookSource = class(TForm)
-    DropEmptySource1: TDropEmptySource;
-    DropFileTarget1: TDropFileTarget;
     Memo1: TMemo;
     PanelReady: TPanel;
     procedure FormMouseDown(Sender: TObject; Button: TMouseButton;
@@ -21,8 +19,9 @@ type
     procedure DropFileTarget1Drop(Sender: TObject; ShiftState: TShiftState;
       APoint: TPoint; var Effect: Integer);
   private
+    DropEmptySource1: TDropEmptySource;
+    DropFileTarget1: TDropFileTarget;
     FOutlookDataFormat: TOutlookDataFormat;
-  public
   end;
 
 var
@@ -62,6 +61,17 @@ end;
 procedure TFormOutlookSource.FormCreate(Sender: TObject);
 begin
   FOutlookDataFormat := TOutlookDataFormat.Create(DropEmptySource1);
+
+  DropEmptySource1 := TDropEmptySource.Create(self);
+  DropEmptySource1.DragTypes := [dtCopy, dtMove, dtLink];
+  DropEmptySource1.AllowAsyncTransfer := True;
+
+  DropFileTarget1 := TDropFileTarget.Create(self);
+  DropFileTarget1.DragTypes := [dtCopy, dtLink];
+  DropFileTarget1.OnDrop := DropFileTarget1Drop;
+  DropFileTarget1.Target := Memo1;
+  DropFileTarget1.AutoScroll := False;
+  DropFileTarget1.OptimizedMove := True;
 end;
 
 procedure TFormOutlookSource.FormMouseDown(Sender: TObject; Button: TMouseButton;

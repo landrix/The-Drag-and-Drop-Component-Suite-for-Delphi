@@ -1,9 +1,9 @@
 object FormOutlookSource: TFormOutlookSource
   Left = 200
   Top = 189
-  Width = 532
-  Height = 306
   Caption = 'Outlook Drop Source demo'
+  ClientHeight = 267
+  ClientWidth = 516
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,8 +18,8 @@ object FormOutlookSource: TFormOutlookSource
   object Memo1: TMemo
     Left = 0
     Top = 41
-    Width = 524
-    Height = 231
+    Width = 516
+    Height = 226
     Align = alClient
     BorderStyle = bsNone
     Lines.Strings = (
@@ -48,7 +48,7 @@ object FormOutlookSource: TFormOutlookSource
   object PanelReady: TPanel
     Left = 0
     Top = 0
-    Width = 524
+    Width = 516
     Height = 41
     Cursor = crHandPoint
     Align = alTop
@@ -65,20 +65,5 @@ object FormOutlookSource: TFormOutlookSource
     TabOrder = 1
     Visible = False
     OnMouseDown = FormMouseDown
-  end
-  object DropEmptySource1: TDropEmptySource
-    DragTypes = [dtCopy, dtMove, dtLink]
-    AllowAsyncTransfer = True
-    Left = 140
-    Top = 188
-  end
-  object DropFileTarget1: TDropFileTarget
-    DragTypes = [dtCopy, dtLink]
-    OnDrop = DropFileTarget1Drop
-    Target = Owner
-    AutoScroll = False
-    OptimizedMove = True
-    Left = 40
-    Top = 188
   end
 end

@@ -23,6 +23,8 @@ rmdir /Q /S Library\DXE7
 rmdir /Q /S Library\DXE8
 rmdir /Q /S Library\DX10S
 rmdir /Q /S Library\DX101B
+rmdir /Q /S Library\DX102T
+rmdir /Q /S Library\DX103R
 
 rmdir /Q /S "Demos\Adapters\__history"
 rmdir /Q /S "Demos\AsyncSource\__history"
