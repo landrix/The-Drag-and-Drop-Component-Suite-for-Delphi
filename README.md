@@ -6,10 +6,10 @@ The Drag and Drop Component Suite for Delphi
 from Anders Melander    
 http://melander.dk/delphi/dragdrop  
 
-The new Drag and Drop Component Suite Version 5.81
-Released 13-dec-2018
-� 1997-2010 Anders Melander  
-� 2011-2018 Sven Harazim  
+The new Drag and Drop Component Suite Version 5.81  
+Released 13-dec-2018  
+© 1997-2010 Anders Melander  
+© 2011-2018 Sven Harazim  
 https://github.com/DelphiPraxis/The-Drag-and-Drop-Component-Suite-for-Delphi  
 
 ## Table of Contents
@@ -110,7 +110,7 @@ or are completely generic.
 
 In addition to the drag and drop components, the Drag and Drop Component 
 Suite also includes components that can be used to build Windows Shell 
-Extensions. While these components aren’t all related to Drag and Drop, 
+Extensions. While these components arenâ€™t all related to Drag and Drop, 
 they benefit from the Drag and Drop Component Suite framework and allow you 
 to write Windows Shell Extensions with very little code. But most important; 
 I had a lot of fun writing them :-).  
