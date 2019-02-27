@@ -8,9 +8,9 @@ unit DropTarget;
 // Target:          Win32, Win64, Delphi 6-XE7
 // Authors:         Anders Melander, anders@melander.dk, http://melander.dk
 // Latest Version   https://github.com/landrix/The-new-Drag-and-Drop-Component-Suite-for-Delphi
-// Copyright        © 1997-1999 Angus Johnson & Anders Melander
-//                  © 2000-2010 Anders Melander
-//                  © 2011-2015 Sven Harazim
+// Copyright        Â© 1997-1999 Angus Johnson & Anders Melander
+//                  Â© 2000-2010 Anders Melander
+//                  Â© 2011-2015 Sven Harazim
 // Changes          Add WinTarget property for running without TWinControl Target
 //                  04.09.2014 by Manfred Suesens DUERR Systems GmbH
 // -----------------------------------------------------------------------------
@@ -1401,7 +1401,7 @@ begin
   begin
     // If MultiTarget isn't enabled, Register will automatically unregister so
     // no need to do it here.
-    if (FMultiTarget) and not(csLoading in ComponentState) then
+    if (not FMultiTarget) and not(csLoading in ComponentState) then
       Unregister;
     Register(Value);
   end;
