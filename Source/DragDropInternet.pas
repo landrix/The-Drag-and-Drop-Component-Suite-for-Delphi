@@ -8,9 +8,9 @@ unit DragDropInternet;
 // Target:          Win32, Win64, Delphi 6-XE7
 // Authors:         Anders Melander, anders@melander.dk, http://melander.dk
 // Latest Version   https://github.com/landrix/The-new-Drag-and-Drop-Component-Suite-for-Delphi
-// Copyright        © 1997-1999 Angus Johnson & Anders Melander
-//                  © 2000-2010 Anders Melander
-//                  © 2011-2015 Sven Harazim
+// Copyright        Â© 1997-1999 Angus Johnson & Anders Melander
+//                  Â© 2000-2010 Anders Melander
+//                  Â© 2011-2015 Sven Harazim
 // -----------------------------------------------------------------------------
 
 interface
@@ -1429,12 +1429,7 @@ end;
 //
 ////////////////////////////////////////////////////////////////////////////////
 const
-{$IFDEF WIN32}
   MAPIDLL = 'mapi32.dll';
-{$ENDIF}
-{$IFDEF WIN64}
-  MAPIDLL = 'mapi64.dll';
-{$ENDIF}
 
 procedure LoadMAPI;
 
@@ -1452,15 +1447,23 @@ begin
     MAPI := SafeLoadLibrary(MAPIDLL);
     if (MAPI <= HINSTANCE_ERROR) then
       raise Exception.CreateFmt('%s: %s', [SysErrorMessage(GetLastError), MAPIDLL]);
+{$IFDEF WIN32}
     GetProc('MAPIGetDefaultMalloc@0', pointer( @MAPIGetDefaultMalloc));
+    GetProc('OpenIMsgOnIStg@44', pointer(@OpenIMsgOnIStg));
+    GetProc('OpenIMsgSession@12', pointer(@OpenIMsgSession));
+    GetProc('CloseIMsgSession@4', pointer(@CloseIMsgSession));
+{$ENDIF}
+{$IFDEF WIN64}
+    GetProc('MAPIGetDefaultMalloc', pointer( @MAPIGetDefaultMalloc));
+    GetProc('OpenIMsgOnIStg', pointer(@OpenIMsgOnIStg));
+    GetProc('OpenIMsgSession', pointer(@OpenIMsgSession));
+    GetProc('CloseIMsgSession', pointer(@CloseIMsgSession));
+{$ENDIF}
     GetProc('MAPIInitialize', pointer(@MAPIInitialize));
     GetProc('MAPIUninitialize', pointer(@MAPIUninitialize));
     GetProc('MAPIAllocateBuffer', pointer(@MAPIAllocateBuffer));
     GetProc('MAPIAllocateMore', pointer(@MAPIAllocateMore));
     GetProc('MAPIFreeBuffer', pointer(@MAPIFreeBuffer));
-    GetProc('OpenIMsgOnIStg@44', pointer(@OpenIMsgOnIStg));
-    GetProc('OpenIMsgSession@12', pointer(@OpenIMsgSession));
-    GetProc('CloseIMsgSession@4', pointer(@CloseIMsgSession));
   end;
 end;
 
@@ -1723,4 +1726,3 @@ initialization
 
 finalization
 end.
-
