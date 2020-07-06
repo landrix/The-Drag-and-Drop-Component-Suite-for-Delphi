@@ -6,10 +6,10 @@ The Drag and Drop Component Suite for Delphi
 from Anders Melander    
 http://melander.dk/delphi/dragdrop  
 
-The new Drag and Drop Component Suite Version 5.81  
-Released 13-dec-2018  
+The new Drag and Drop Component Suite Version 5.82  
+Released 06-jul-2020  
 © 1997-2010 Anders Melander  
-© 2011-2018 Sven Harazim  
+© 2011-2020 Sven Harazim  
 https://github.com/DelphiPraxis/The-Drag-and-Drop-Component-Suite-for-Delphi  
 
 ## Table of Contents
@@ -22,7 +22,8 @@ https://github.com/DelphiPraxis/The-Drag-and-Drop-Component-Suite-for-Delphi
 This version of the library has been tested with Delphi 6, Delphi 7, Delphi 2007,
 Delphi 2009, Delphi 2010, Delphi XE, Delphi XE2, Delphi XE3, Delphi XE4, Delphi XE5,
 Delphi XE6, Delphi XE7, Delphi XE8 (Win32,Win64), Delphi 10 Seattle (Win32,Win64),
-Delphi 10.1 Berlin (Win32,Win64),Delphi 10.2 Tokyo (Win32,Win64), Delphi 10.3 Rio (Win32,Win64)
+Delphi 10.1 Berlin (Win32,Win64),Delphi 10.2 Tokyo (Win32,Win64), Delphi 10.3 Rio (Win32,Win64),
+Delphi 10.4 Sydney (Win32,Win64)
 
 ## 2. Installation
 1. If you are using a previous version of the Drag and Drop Component Suite, uninstall that
