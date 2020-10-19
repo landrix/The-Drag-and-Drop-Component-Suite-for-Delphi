@@ -10,7 +10,7 @@ The new Drag and Drop Component Suite Version 5.82
 Released 06-jul-2020  
 © 1997-2010 Anders Melander  
 © 2011-2020 Sven Harazim  
-https://github.com/DelphiPraxis/The-Drag-and-Drop-Component-Suite-for-Delphi  
+https://github.com/landrix/The-Drag-and-Drop-Component-Suite-for-Delphi  
 
 ## Table of Contents
 1. Supported platforms
