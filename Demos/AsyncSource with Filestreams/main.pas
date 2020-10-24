@@ -10,7 +10,7 @@ uses
   IdExplicitTLSClientServerBase, IdFTP,
   Messages, Dialogs,
   ActiveX, Windows, Classes, Controls, Forms, StdCtrls, ComCtrls, ExtCtrls,
-  Buttons, ImgList, ToolWin, ActnList, System.Actions;
+  Buttons, ImgList, ToolWin, ActnList, Actions, Types;
 
 {$include DragDrop.inc}
 
@@ -364,12 +364,12 @@ type
   TFifoStreamAdapter = class(TFixedStreamAdapter, IStream)
   private
   public
-    function Read(pv: Pointer; cb: Longint;
-      pcbRead: PLongint): HResult; override; stdcall;
+    function Read(pv: Pointer; cb: {$if CompilerVersion < 29}Longint{$else}FixedUInt{$ifend};
+      pcbRead: {$if CompilerVersion < 29}PLongint{$else}PFixedUInt{$ifend}): HResult; override; stdcall;
   end;
 
-function TFifoStreamAdapter.Read(pv: Pointer; cb: Integer;
-  pcbRead: PLongint): HResult;
+function TFifoStreamAdapter.Read(pv: Pointer; cb: {$if CompilerVersion < 29}Longint{$else}FixedUInt{$ifend};
+  pcbRead: {$if CompilerVersion < 29}PLongint{$else}PFixedUInt{$ifend}): HResult;
 begin
   Result := inherited Read(pv, cb, pcbRead);
   if (TFifoStream(Stream).Aborted) then

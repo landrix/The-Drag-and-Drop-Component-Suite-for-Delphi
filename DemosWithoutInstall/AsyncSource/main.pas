@@ -8,7 +8,7 @@ uses
   DragDrop, DropSource, DragDropFile,
   Messages,
   ActiveX, Windows, Classes, Controls, Forms, StdCtrls, ComCtrls, ExtCtrls,
-  Buttons, ActnList, ToolWin, ImgList;
+  Buttons, ActnList, ToolWin, ImgList, Actions, ImageList, Types;
 
 const
   MSG_PROGRESS = WM_USER;
@@ -20,8 +20,6 @@ type
 type
   TFormMain = class(TForm)
     Timer1: TTimer;
-    DropEmptySource1: TDropEmptySource;
-    DataFormatAdapterSource: TDataFormatAdapter;
     ProgressBar1: TProgressBar;
     Panel5: TPanel;
     StatusBar1: TStatusBar;
@@ -74,6 +72,8 @@ type
     property TransferInProgress: boolean read FTransferInProgress;
     property Status: TDragDropStage read FStatus write SetStatus;
   public
+    DropEmptySource1: TDropEmptySource;
+    DataFormatAdapterSource: TDataFormatAdapter;
   end;
 
 var
@@ -93,6 +93,17 @@ const
 
 procedure TFormMain.FormCreate(Sender: TObject);
 begin
+  DropEmptySource1:= TDropEmptySource.Create(self);
+  DropEmptySource1.DragTypes := [dtCopy, dtMove];
+  DropEmptySource1.OnDrop := DropEmptySource1Drop;
+  DropEmptySource1.OnAfterDrop := DropEmptySource1AfterDrop;
+  DropEmptySource1.OnGetData := DropEmptySource1GetData;
+
+  DataFormatAdapterSource:= TDataFormatAdapter.Create(self);
+  DataFormatAdapterSource.DragDropComponent := DropEmptySource1;
+  DataFormatAdapterSource.DataFormatName := 'TVirtualFileStreamDataFormat';
+  DataFormatAdapterSource.Enabled := true;
+
   // Setup event handler to let a drop target request data from our drop source.
   (DataFormatAdapterSource.DataFormat as TVirtualFileStreamDataFormat).OnGetStream := OnGetStream;
 

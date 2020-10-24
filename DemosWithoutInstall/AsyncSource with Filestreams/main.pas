@@ -10,7 +10,7 @@ uses
   IdExplicitTLSClientServerBase, IdFTP,
   Messages, Dialogs,
   ActiveX, Windows, Classes, Controls, Forms, StdCtrls, ComCtrls, ExtCtrls,
-  Buttons, ImgList, ToolWin, ActnList, System.Actions;
+  Buttons, ImgList, ToolWin, ActnList, Actions, ImageList, Types;
 
 {$include DragDrop.inc}
 
@@ -45,8 +45,6 @@ type
   TBrowseOptions = set of TBrowseOption;
 
   TFormMain = class(TForm)
-    DropEmptySource1: TDropEmptySource;
-    DataFormatAdapterSource: TDataFormatAdapter;
     ProgressBar1: TProgressBar;
     StatusBar1: TStatusBar;
     ListViewFiles: TListView;
@@ -135,7 +133,9 @@ type
     procedure MsgStatus(var Message: TMessage); message MSG_STATUS;
     procedure MsgTransfer(var Message: TMessage); message MSG_TRANSFER;
     procedure MsgBrowse(var Message: TMessage); message MSG_BROWSE;
-
+  public
+    DropEmptySource1: TDropEmptySource;
+    DataFormatAdapterSource: TDataFormatAdapter;
   public
     procedure Browse(const Address: string; Options: TBrowseOptions = [boBrowse]);
     procedure AddSourceFile(const Filename: string);
@@ -215,6 +215,18 @@ procedure TFormMain.FormCreate(Sender: TObject);
 var
   SHFileInfo: TSHFileInfo;
 begin
+  DropEmptySource1:= TDropEmptySource.Create(self);
+  DropEmptySource1.DragTypes := [dtCopy, dtMove];
+  DropEmptySource1.OnDrop := DropEmptySource1Drop;
+  DropEmptySource1.OnAfterDrop := DropEmptySource1AfterDrop;
+  DropEmptySource1.OnGetData := DropEmptySource1GetData;
+  DropEmptySource1.AllowAsyncTransfer := True;
+
+  DataFormatAdapterSource:= TDataFormatAdapter.Create(self);
+  DataFormatAdapterSource.DragDropComponent := DropEmptySource1;
+  DataFormatAdapterSource.DataFormatName := 'TVirtualFileStreamDataFormat';
+  DataFormatAdapterSource.Enabled := true;
+
   FHistoryList := TStringList.Create;
   FHistoryIndex := -1;
   ComboAddress.Items.Add(sAddressHomeAlt);
@@ -364,12 +376,12 @@ type
   TFifoStreamAdapter = class(TFixedStreamAdapter, IStream)
   private
   public
-    function Read(pv: Pointer; cb: Longint;
-      pcbRead: PLongint): HResult; override; stdcall;
+    function Read(pv: Pointer; cb: {$if CompilerVersion < 29}Longint{$else}FixedUInt{$ifend};
+      pcbRead: {$if CompilerVersion < 29}PLongint{$else}PFixedUInt{$ifend}): HResult; override; stdcall;
   end;
 
-function TFifoStreamAdapter.Read(pv: Pointer; cb: Integer;
-  pcbRead: PLongint): HResult;
+function TFifoStreamAdapter.Read(pv: Pointer; cb: {$if CompilerVersion < 29}Longint{$else}FixedUInt{$ifend};
+  pcbRead: {$if CompilerVersion < 29}PLongint{$else}PFixedUInt{$ifend}): HResult;
 begin
   Result := inherited Read(pv, cb, pcbRead);
   if (TFifoStream(Stream).Aborted) then

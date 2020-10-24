@@ -91,7 +91,7 @@ begin
     MemoFile.Lines.Assign((DataFormatAdapterFile.DataFormat as TFileDataFormat).Files);
 
   if (DataFormatAdapterURL.DataFormat <> nil) then
-    MemoURL.Lines.Text := (DataFormatAdapterURL.DataFormat as TURLDataFormat).URL;
+    MemoURL.Lines.Text := String((DataFormatAdapterURL.DataFormat as TURLDataFormat).URL);
 end;
 
 end.
