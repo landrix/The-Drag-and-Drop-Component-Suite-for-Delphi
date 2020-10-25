@@ -9,7 +9,7 @@ uses
   ActiveX,
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, ComCtrls, StdCtrls, ToolWin, ImgList, ActnList, Menus,
-  System.Actions;
+  System.Actions, System.ImageList;
 
 const
   MAX_DATA = 32768; // Max bytes to render in preview
@@ -512,7 +512,7 @@ begin
   begin
     Hex := Hex+IntToHex(ord(Data[i+1]), 2)+' ';
     if (Data[i+1] in [' '..#$7F]) then
-      ASCII := ASCII+Data[i+1]
+      ASCII := ASCII+String(Data[i+1])
     else
       ASCII := ASCII+'.';
     inc(LineLength);

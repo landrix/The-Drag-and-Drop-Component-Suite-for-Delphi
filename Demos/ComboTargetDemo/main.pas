@@ -111,7 +111,7 @@ begin
   // Copy the rest of the dropped formats.
   ListBoxFiles.Items.Assign(DropComboTarget1.Files);
   ListBoxMaps.Items.Assign(DropComboTarget1.FileMaps);
-  EditURLURL.Text := DropComboTarget1.URL;
+  EditURLURL.Text := String(DropComboTarget1.URL);
   EditURLTitle.Text := DropComboTarget1.Title;
   ImageBitmap.Picture.Assign(DropComboTarget1.Bitmap);
   ImageMetaFile.Picture.Assign(DropComboTarget1.MetaFile);

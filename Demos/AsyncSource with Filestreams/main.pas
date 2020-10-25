@@ -10,7 +10,7 @@ uses
   IdExplicitTLSClientServerBase, IdFTP,
   Messages, Dialogs,
   ActiveX, Windows, Classes, Controls, Forms, StdCtrls, ComCtrls, ExtCtrls,
-  Buttons, ImgList, ToolWin, ActnList, Actions, Types;
+  Buttons, ImgList, ToolWin, ActnList, Actions, Types, System.ImageList;
 
 {$include DragDrop.inc}
 

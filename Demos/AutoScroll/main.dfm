@@ -120,6 +120,7 @@ object FormAutoScroll: TFormAutoScroll
     OnDragOver = DropTextTarget1DragOver
     OnDrop = DropTextTarget1Drop
     Target = StringGrid1
+    WinTarget = 0
     Left = 24
     Top = 56
   end

@@ -60,6 +60,7 @@ object FormMain: TFormMain
       Visible = False
       WantReturns = False
       WordWrap = False
+      Zoom = 100
     end
     object IntroView: TRichEdit
       Left = 0
@@ -79,6 +80,7 @@ object FormMain: TFormMain
       TabOrder = 1
       WantReturns = False
       WordWrap = False
+      Zoom = 100
     end
     object PanelError: TPanel
       Left = 0
@@ -126,6 +128,7 @@ object FormMain: TFormMain
             Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 28
           end
           object LabelError: TLabel
             Left = 4
@@ -136,6 +139,8 @@ object FormMain: TFormMain
             Caption = 'Blah blah'
             ShowAccelChar = False
             WordWrap = True
+            ExplicitWidth = 43
+            ExplicitHeight = 13
           end
         end
         object Panel4: TPanel

@@ -153,8 +153,8 @@ object FormURL: TFormURL
     object ImageSource2: TImage
       Left = 3
       Top = 3
-      Width = 52
-      Height = 48
+      Width = 50
+      Height = 50
       Hint = 'Right click for clipboard operations'
       Align = alClient
       AutoSize = True
@@ -279,6 +279,8 @@ object FormURL: TFormURL
       PopupMenu = PopupMenu1
       Transparent = True
       OnMouseDown = ImageMouseDown
+      ExplicitWidth = 52
+      ExplicitHeight = 48
     end
   end
   object PanelImageSource1: TPanel
@@ -291,8 +293,8 @@ object FormURL: TFormURL
     object ImageSource1: TImage
       Left = 3
       Top = 3
-      Width = 52
-      Height = 48
+      Width = 50
+      Height = 50
       Hint = 'Right click for clipboard operations'
       Align = alClient
       AutoSize = True
@@ -349,6 +351,8 @@ object FormURL: TFormURL
       PopupMenu = PopupMenu1
       Transparent = True
       OnMouseDown = ImageMouseDown
+      ExplicitWidth = 52
+      ExplicitHeight = 48
     end
   end
   object PanelURL: TPanel
@@ -376,6 +380,7 @@ object FormURL: TFormURL
     DragTypes = [dtCopy, dtLink]
     GetDataOnEnter = True
     OnDrop = DropURLTarget1Drop
+    WinTarget = 0
     Left = 184
     Top = 96
   end
@@ -403,6 +408,7 @@ object FormURL: TFormURL
     DragTypes = [dtCopy, dtMove]
     OnDrop = DropBMPTarget1Drop
     Target = PanelImageTarget
+    WinTarget = 0
     Left = 304
     Top = 256
   end
@@ -415,6 +421,7 @@ object FormURL: TFormURL
   end
   object DropDummy1: TDropDummy
     DragTypes = []
+    WinTarget = 0
     Left = 328
     Top = 8
   end

@@ -75,6 +75,8 @@ object FormMain: TFormMain
         ' Outlook and many others.'
       ShowAccelChar = False
       WordWrap = True
+      ExplicitWidth = 401
+      ExplicitHeight = 39
     end
     object PanelDragDrop: TPanel
       Left = 4
@@ -92,6 +94,7 @@ object FormMain: TFormMain
   object DropDummy1: TDropDummy
     DragTypes = []
     Target = Owner
+    WinTarget = 0
     Left = 60
     Top = 148
   end
@@ -648,6 +651,7 @@ object FormMain: TFormMain
     DragTypes = [dtCopy, dtLink]
     OnDrop = DropFileTarget1Drop
     Target = PanelDragDrop
+    WinTarget = 0
     OptimizedMove = True
     Left = 60
     Top = 100

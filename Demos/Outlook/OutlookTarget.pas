@@ -7,10 +7,10 @@ interface
 uses
   ActiveX,//!!!
 
-  MapiDefs,
+  MapiDefs,Types,
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   ExtCtrls, ComCtrls, StdCtrls, DragDrop, DropTarget, DragDropText, ImgList,
-  Menus, ActnList;
+  Menus, ActnList, System.Actions, System.ImageList;
 
 type
   TMessage = class(TObject)
@@ -349,7 +349,7 @@ procedure TFormOutlookTarget.FormCreate(Sender: TObject);
 var
   SHFileInfo: TSHFileInfo;
 begin
-  LoadMAPI32;
+  LoadMAPI;
 
   try
     // It appears that for for Win XP and later it is OK to let MAPI call
@@ -691,8 +691,8 @@ var
   Buffer: array of byte;
   Data: TMemoryStream;
   SourceStream: IStream;
-  Size: integer;
-  Dummy: int64;
+  Size: {$if CompilerVersion < 29}Longint{$else}FixedUInt{$ifend};
+  Dummy: {$if CompilerVersion < 29}Int64{$else}UInt64{$ifend};
 const
   BufferSize = 64*1024; // 64Kb
   MaxMessageSize = 256*1024; // 256 Kb
@@ -774,7 +774,7 @@ var
 
   FileName: AnsiString;
   SourceStream, DestStream: IStream;
-  Dummy: int64;
+  Dummy: {$if CompilerVersion < 29}Int64{$else}UInt64{$ifend};
 
   Msg: IMessage;
 begin
@@ -812,7 +812,7 @@ begin
           // Another way to do it:
           // DestStream := TFixedStreamAdapter.Create(TFileStream.Create(FileName, fmCreate), soOwned);
 
-          SourceStream.CopyTo(DestStream, -1, Dummy, Dummy);
+          SourceStream.CopyTo(DestStream, 0, Dummy, Dummy);
           DestStream := nil;
 
           Execute(String(FileName));
@@ -958,7 +958,7 @@ var
   s: string;
   Size: integer;
   Stream: IStream;
-  Pos: Largeint;
+  Pos: {$if CompilerVersion < 29}LargeInt{$else}LargeUInt{$ifend};
   Msg: IMessage;
   SHFileInfo: TSHFileInfo;
 begin

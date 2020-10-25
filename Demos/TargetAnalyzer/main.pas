@@ -6,7 +6,7 @@ uses
   ActiveX,
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, ComCtrls, DragDrop, DropSource, ImgList, StdCtrls, Menus,
-  Buttons;
+  Buttons, System.ImageList;
 
 type
   TRequestedFormat = record

@@ -9,7 +9,7 @@ uses
   DragDropText,
   DragDropTimeOfDay,
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  ExtCtrls, StdCtrls;
+  ExtCtrls, StdCtrls, Types;
 
 type
   TFormSource = class(TForm)

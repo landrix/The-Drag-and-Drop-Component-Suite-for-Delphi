@@ -89,6 +89,7 @@ object Form1: TForm1
     OnEnter = DropTextTarget1Enter
     OnLeave = DropTextTarget1Leave
     OnDrop = DropTextTarget1Drop
+    WinTarget = 0
     MultiTarget = True
     Left = 224
     Top = 104
@@ -101,6 +102,7 @@ object Form1: TForm1
   object DropDummy1: TDropDummy
     DragTypes = [dtCopy, dtMove, dtLink]
     Target = Owner
+    WinTarget = 0
     Left = 224
     Top = 48
   end

@@ -1,10 +1,10 @@
 object FormOutlookTarget: TFormOutlookTarget
   Left = 348
   Top = 343
-  Width = 680
-  Height = 427
   ActiveControl = MemoBody
   Caption = 'Outlook drop target demo'
+  ClientHeight = 388
+  ClientWidth = 664
   Color = clBtnFace
   Constraints.MinWidth = 200
   Font.Charset = DEFAULT_CHARSET
@@ -22,15 +22,16 @@ object FormOutlookTarget: TFormOutlookTarget
   object SplitterBrowser: TSplitter
     Left = 250
     Top = 0
-    Height = 374
+    Height = 369
     AutoSnap = False
     MinSize = 100
     ResizeStyle = rsUpdate
+    ExplicitHeight = 374
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 374
-    Width = 672
+    Top = 369
+    Width = 664
     Height = 19
     Panels = <>
     ParentFont = True
@@ -41,7 +42,7 @@ object FormOutlookTarget: TFormOutlookTarget
     Left = 0
     Top = 0
     Width = 250
-    Height = 374
+    Height = 369
     Align = alLeft
     Columns = <
       item
@@ -65,16 +66,16 @@ object FormOutlookTarget: TFormOutlookTarget
   object PanelMain: TPanel
     Left = 253
     Top = 0
-    Width = 419
-    Height = 374
+    Width = 411
+    Height = 369
     Align = alClient
     BevelOuter = bvNone
     Caption = ' '
     TabOrder = 1
     object SplitterAttachments: TSplitter
       Left = 0
-      Top = 320
-      Width = 419
+      Top = 315
+      Width = 411
       Height = 3
       Cursor = crVSplit
       Align = alBottom
@@ -82,11 +83,13 @@ object FormOutlookTarget: TFormOutlookTarget
       MinSize = 50
       ResizeStyle = rsUpdate
       Visible = False
+      ExplicitTop = 320
+      ExplicitWidth = 419
     end
     object PanelFrom: TPanel
       Left = 0
       Top = 0
-      Width = 419
+      Width = 411
       Height = 16
       Align = alTop
       AutoSize = True
@@ -94,7 +97,7 @@ object FormOutlookTarget: TFormOutlookTarget
       Caption = ' '
       TabOrder = 0
       DesignSize = (
-        419
+        411
         16)
       object Label1: TLabel
         Left = 4
@@ -126,7 +129,7 @@ object FormOutlookTarget: TFormOutlookTarget
     object PanelTo: TPanel
       Left = 0
       Top = 16
-      Width = 419
+      Width = 411
       Height = 16
       Align = alTop
       AutoSize = True
@@ -134,7 +137,7 @@ object FormOutlookTarget: TFormOutlookTarget
       Caption = ' '
       TabOrder = 1
       DesignSize = (
-        419
+        411
         16)
       object Label2: TLabel
         Left = 4
@@ -188,7 +191,7 @@ object FormOutlookTarget: TFormOutlookTarget
     object PanelSubject: TPanel
       Left = 0
       Top = 32
-      Width = 419
+      Width = 411
       Height = 16
       Align = alTop
       AutoSize = True
@@ -196,7 +199,7 @@ object FormOutlookTarget: TFormOutlookTarget
       Caption = ' '
       TabOrder = 2
       DesignSize = (
-        419
+        411
         16)
       object Label3: TLabel
         Left = 4
@@ -221,8 +224,8 @@ object FormOutlookTarget: TFormOutlookTarget
     object MemoBody: TRichEdit
       Left = 0
       Top = 48
-      Width = 419
-      Height = 272
+      Width = 411
+      Height = 267
       Align = alClient
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -240,11 +243,12 @@ object FormOutlookTarget: TFormOutlookTarget
       ScrollBars = ssBoth
       TabOrder = 3
       WantReturns = False
+      Zoom = 100
     end
     object ListViewAttachments: TListView
       Left = 0
-      Top = 323
-      Width = 419
+      Top = 318
+      Width = 411
       Height = 51
       Align = alBottom
       Columns = <
@@ -285,6 +289,7 @@ object FormOutlookTarget: TFormOutlookTarget
     DragTypes = [dtCopy, dtLink]
     OnDrop = DropTextTarget1Drop
     Target = Owner
+    WinTarget = 0
     Left = 28
     Top = 124
   end

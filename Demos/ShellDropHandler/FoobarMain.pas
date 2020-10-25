@@ -6,7 +6,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  Menus, StdCtrls, ExtCtrls;
+  Menus, StdCtrls, ExtCtrls,UITypes;
 
 type
   TFormFileList = class(TForm)

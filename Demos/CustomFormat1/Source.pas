@@ -8,7 +8,7 @@ uses
   DragDropFormats,
   DragDropText,
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  ExtCtrls, StdCtrls;
+  ExtCtrls, StdCtrls,Types;
 
 type
   TFormSource = class(TForm)

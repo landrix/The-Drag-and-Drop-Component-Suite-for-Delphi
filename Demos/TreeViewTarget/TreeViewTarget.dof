@@ -1,9 +1,0 @@
-[FileVersion]
-Version=7.0
-[Compiler]
-A=8[FileVersion]
-Version=7.0
-[Directories]
-OutputDir=.
-UnitOutputDir=.
-SearchPath=..\..\Source

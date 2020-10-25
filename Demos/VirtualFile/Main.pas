@@ -5,7 +5,7 @@ interface
 uses
   Windows, Classes, Controls, Forms, ExtCtrls, StdCtrls,
   DragDrop, DropSource, DragDropFile, DropTarget, Graphics, ImgList, Menus,
-  ActnList;
+  ActnList, Actions, ImageList, Types;
 
 type
   (*
@@ -92,7 +92,7 @@ begin
   begin
     // Transfer the file name and contents to the data format...
     FSourceDataFormat.FileName := EditFileName.Text;
-    FSourceDataFormat.Contents := MemoContents.Lines.Text;
+    FSourceDataFormat.Contents := AnsiString(MemoContents.Lines.Text);
 
     // ...and let it rip!
     DropEmptySource1.Execute;
@@ -103,7 +103,7 @@ procedure TFormMain.ActionCopyExecute(Sender: TObject);
 begin
   // Transfer the file name and contents to the data format...
   FSourceDataFormat.FileName := EditFileName.Text;
-  FSourceDataFormat.Contents := MemoContents.Lines.Text;
+  FSourceDataFormat.Contents := AnsiString(MemoContents.Lines.Text);
 
   // ...and copy to clipboard.
   DropEmptySource1.CopyToClipboard;
@@ -162,7 +162,7 @@ begin
   // us (e.g. the AsyncTransferSource demo which transfers 10Mb of data) we need
   // to limit how much data we try to stuff into the poor memo field. Otherwise
   // we could wait for hours before transfer was finished.
-  MemoContents.Lines.Text := Copy(FTargetDataFormat.Contents, 1, 1024*32);
+  MemoContents.Lines.Text := Copy(String(FTargetDataFormat.Contents), 1, 1024*32);
 end;
 
 
@@ -199,7 +199,7 @@ begin
   if (Source is TAnsiFileGroupDescriptorClipboardFormat) then
   begin
     if (TAnsiFileGroupDescriptorClipboardFormat(Source).Count > 0) then
-      FFileName := TAnsiFileGroupDescriptorClipboardFormat(Source).Filenames[0];
+      FFileName := String(TAnsiFileGroupDescriptorClipboardFormat(Source).Filenames[0]);
   end else
   (*
   ** TUnicodeFileGroupDescriptorClipboardFormat
@@ -232,7 +232,7 @@ begin
   if (Dest is TAnsiFileGroupDescriptorClipboardFormat) then
   begin
     TAnsiFileGroupDescriptorClipboardFormat(Dest).Count := 1;
-    TAnsiFileGroupDescriptorClipboardFormat(Dest).Filenames[0] := FFileName;
+    TAnsiFileGroupDescriptorClipboardFormat(Dest).Filenames[0] := AnsiString(FFileName);
   end else
   (*
   ** TUnicodeFileGroupDescriptorClipboardFormat

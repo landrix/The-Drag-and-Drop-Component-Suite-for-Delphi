@@ -63,8 +63,8 @@ object FormMain: TFormMain
     object Label1: TLabel
       Left = 4
       Top = 4
-      Width = 497
-      Height = 51
+      Width = 473
+      Height = 26
       Align = alClient
       Caption = 
         'Drag between the above list and any application which supports t' +
@@ -77,6 +77,7 @@ object FormMain: TFormMain
   object DropDummy1: TDropDummy
     DragTypes = []
     Target = Owner
+    WinTarget = 0
     Left = 120
     Top = 160
   end
@@ -91,6 +92,7 @@ object FormMain: TFormMain
     OnEnter = DropEmptyTarget1Enter
     OnDrop = DropEmptyTarget1Drop
     Target = ListView1
+    WinTarget = 0
     Left = 120
     Top = 68
   end

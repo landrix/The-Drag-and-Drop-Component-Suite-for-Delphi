@@ -1,9 +1,9 @@
 object Form1: TForm1
   Left = 453
   Top = 158
-  Width = 375
-  Height = 472
   Caption = 'Drag and Drop Unicode Demo'
+  ClientHeight = 433
+  ClientWidth = 359
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,8 +16,8 @@ object Form1: TForm1
   object PageControl1: TPageControl
     Left = 0
     Top = 0
-    Width = 367
-    Height = 438
+    Width = 359
+    Height = 433
     ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
@@ -26,16 +26,16 @@ object Form1: TForm1
       object GroupBox1: TGroupBox
         Left = 0
         Top = 114
-        Width = 359
-        Height = 296
+        Width = 351
+        Height = 291
         Align = alClient
         Caption = ' Filenames '
         TabOrder = 0
         object PaintBoxFiles: TPaintBox
           Left = 2
           Top = 15
-          Width = 355
-          Height = 279
+          Width = 347
+          Height = 274
           Align = alClient
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -45,12 +45,14 @@ object Form1: TForm1
           ParentFont = False
           PopupMenu = PopupMenuFileTarget
           OnPaint = PaintBoxFilesPaint
+          ExplicitWidth = 355
+          ExplicitHeight = 279
         end
       end
       object GroupBox2: TGroupBox
         Left = 0
         Top = 0
-        Width = 359
+        Width = 351
         Height = 57
         Align = alTop
         Caption = ' Drop source '
@@ -58,7 +60,7 @@ object Form1: TForm1
         object PanelFileSource: TPanel
           Left = 2
           Top = 15
-          Width = 355
+          Width = 347
           Height = 40
           Cursor = crHandPoint
           Align = alClient
@@ -72,7 +74,7 @@ object Form1: TForm1
       object GroupBox3: TGroupBox
         Left = 0
         Top = 57
-        Width = 359
+        Width = 351
         Height = 57
         Align = alTop
         Caption = ' Drop target '
@@ -80,7 +82,7 @@ object Form1: TForm1
         object PanelFileTarget: TPanel
           Left = 2
           Top = 15
-          Width = 355
+          Width = 347
           Height = 40
           Align = alClient
           BevelOuter = bvNone
@@ -93,6 +95,10 @@ object Form1: TForm1
     object TabSheet2: TTabSheet
       Caption = 'Text'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object GroupBox4: TGroupBox
         Left = 0
         Top = 0
@@ -165,6 +171,7 @@ object Form1: TForm1
     DragTypes = [dtCopy, dtLink]
     OnDrop = DropFileTarget1Drop
     Target = PanelFileTarget
+    WinTarget = 0
     OptimizedMove = True
     Left = 60
     Top = 264
@@ -183,6 +190,7 @@ object Form1: TForm1
     DragTypes = [dtCopy, dtLink]
     OnDrop = DropTextTarget1Drop
     Target = PanelTextTarget
+    WinTarget = 0
     Left = 172
     Top = 264
   end

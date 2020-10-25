@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ImgList, StdCtrls, ExtCtrls, ComCtrls, DragDrop, DropTarget,
-  DragDropFile;
+  DragDropFile, System.ImageList;
 
 type
   TFormTreeViewDemo = class(TForm)

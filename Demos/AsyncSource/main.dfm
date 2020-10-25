@@ -1,9 +1,9 @@
 object FormMain: TFormMain
   Left = 366
   Top = 402
-  Width = 598
-  Height = 417
   Caption = 'Async Data Transfer Demo - Drop source'
+  ClientHeight = 378
+  ClientWidth = 582
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,24 +16,24 @@ object FormMain: TFormMain
   TextHeight = 13
   object ProgressBar1: TProgressBar
     Left = 0
-    Top = 349
-    Width = 590
+    Top = 344
+    Width = 582
     Height = 15
     Align = alBottom
-    Min = 0
     Max = 1000000
     Step = 1024
     TabOrder = 0
   end
   object Panel5: TPanel
     Left = 0
-    Top = 42
-    Width = 590
+    Top = 40
+    Width = 582
     Height = 117
     Align = alTop
     BevelOuter = bvNone
     Caption = ' '
     TabOrder = 1
+    ExplicitTop = 42
     object Panel1: TPanel
       Left = 0
       Top = 0
@@ -64,12 +64,14 @@ object FormMain: TFormMain
         Layout = tlCenter
         WordWrap = True
         OnMouseDown = OnMouseDown
+        ExplicitWidth = 146
+        ExplicitHeight = 48
       end
     end
     object Panel2: TPanel
       Left = 185
       Top = 0
-      Width = 405
+      Width = 397
       Height = 117
       Align = alClient
       BevelOuter = bvNone
@@ -78,38 +80,45 @@ object FormMain: TFormMain
       object Label1: TLabel
         Left = 4
         Top = 4
-        Width = 397
+        Width = 389
         Height = 109
         Align = alClient
         Caption = 
           'This example demonstrates how to source a drop from a thread.'#13#13'T' +
           'he advantage of using a thread is that the source application is' +
-          'n´t blocked while the target application processes the drop.'#13#13'No' +
+          'n'#180't blocked while the target application processes the drop.'#13#13'No' +
           'te that this approach is normally only used when transferring la' +
           'rge amounts of data or when the drop target is very slow.'
         ShowAccelChar = False
         WordWrap = True
+        ExplicitWidth = 394
+        ExplicitHeight = 91
       end
     end
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 364
-    Width = 590
+    Top = 359
+    Width = 582
     Height = 19
     Panels = <>
     SimplePanel = True
   end
   object Panel4: TPanel
     Left = 0
-    Top = 159
+    Top = 157
     Width = 393
-    Height = 190
+    Height = 187
     Align = alLeft
     BevelOuter = bvLowered
     BorderWidth = 8
     Caption = ' '
     TabOrder = 3
+    ExplicitTop = 159
+    ExplicitHeight = 185
+    DesignSize = (
+      393
+      187)
     object Label2: TLabel
       Left = 26
       Top = 24
@@ -163,8 +172,8 @@ object FormMain: TFormMain
   object ToolBar1: TToolBar
     Left = 0
     Top = 0
-    Width = 590
-    Height = 42
+    Width = 582
+    Height = 40
     AutoSize = True
     ButtonHeight = 38
     ButtonWidth = 40
@@ -175,30 +184,30 @@ object FormMain: TFormMain
     TabOrder = 4
     object ToolButtonThrobber: TToolButton
       Left = 0
-      Top = 2
+      Top = 0
       AutoSize = True
       ImageIndex = 0
     end
     object ToolButton1: TToolButton
       Left = 43
-      Top = 2
+      Top = 0
       Action = ActionAbort
       AutoSize = True
     end
   end
   object Panel3: TPanel
     Left = 393
-    Top = 159
-    Width = 197
-    Height = 190
+    Top = 157
+    Width = 189
+    Height = 187
     Align = alClient
     BevelOuter = bvLowered
     TabOrder = 5
     object MemoTrace: TMemo
       Left = 1
       Top = 1
-      Width = 195
-      Height = 188
+      Width = 187
+      Height = 185
       TabStop = False
       Align = alClient
       BorderStyle = bsNone

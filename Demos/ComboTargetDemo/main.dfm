@@ -27,6 +27,10 @@ object FormMain: TFormMain
       Caption = 'Text'
       Enabled = False
       TabVisible = False
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object MemoText: TMemo
         Left = 0
         Top = 0
@@ -40,6 +44,10 @@ object FormMain: TFormMain
       Caption = 'Files'
       ImageIndex = 1
       TabVisible = False
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Splitter1: TSplitter
         Left = 0
         Top = 166
@@ -72,6 +80,10 @@ object FormMain: TFormMain
       Caption = 'Bitmap'
       ImageIndex = 2
       TabVisible = False
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object ScrollBox2: TScrollBox
         Left = 0
         Top = 0
@@ -93,6 +105,10 @@ object FormMain: TFormMain
       Caption = 'URL'
       ImageIndex = 3
       TabVisible = False
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label1: TLabel
         Left = 12
         Top = 20
@@ -156,6 +172,10 @@ object FormMain: TFormMain
       Caption = 'MetaFile'
       ImageIndex = 5
       TabVisible = False
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object ScrollBox1: TScrollBox
         Left = 0
         Top = 0
@@ -227,8 +247,6 @@ object FormMain: TFormMain
         Align = alClient
         Caption = ' Accept the following formats '
         TabOrder = 0
-        ExplicitLeft = -2
-        ExplicitTop = -2
         object CheckBoxText: TCheckBox
           Left = 12
           Top = 20
@@ -302,7 +320,7 @@ object FormMain: TFormMain
     DragTypes = [dtCopy, dtLink]
     OnDrop = DropComboTarget1Drop
     Target = Owner
-    OptimizedMove = True
+    WinTarget = 0
     Left = 196
     Top = 80
   end

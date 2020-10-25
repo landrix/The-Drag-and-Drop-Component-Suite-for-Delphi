@@ -46,9 +46,9 @@ object FormMain: TFormMain
   end
   object ListViewFiles: TListView
     Left = 0
-    Top = 94
+    Top = 91
     Width = 573
-    Height = 248
+    Height = 251
     Align = alClient
     Columns = <
       item
@@ -80,7 +80,7 @@ object FormMain: TFormMain
     Left = 0
     Top = 0
     Width = 573
-    Height = 94
+    Height = 91
     AutoSize = True
     Bands = <
       item
@@ -2080,8 +2080,8 @@ object FormMain: TFormMain
     end
   end
   object IdFTP1: TIdFTP
-    IPVersion = Id_IPv4
     Passive = True
+    ConnectTimeout = 0
     Password = 'homer@simpson.org'
     Username = 'anonymous'
     NATKeepAlive.UseKeepAlive = False
