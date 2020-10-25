@@ -15,7 +15,7 @@ interface
 
 uses
   DragDrop, DropTarget,
-  Messages,
+  Messages,Types,
   ActiveX, Windows, Classes, Controls, Forms, StdCtrls, ComCtrls, ExtCtrls;
 
 const
@@ -28,10 +28,8 @@ type
   TFormMain = class(TForm)
     Timer1: TTimer;
     StatusBar1: TStatusBar;
-    DataFormatAdapterTarget: TDataFormatAdapter;
     ProgressBar1: TProgressBar;
     Panel5: TPanel;
-    DropEmptyTarget1: TDropEmptyTarget;
     Panel2: TPanel;
     Panel3: TPanel;
     PaintBoxPie: TPaintBox;
@@ -44,7 +42,6 @@ type
     Label4: TLabel;
     Panel6: TPanel;
     Label1: TLabel;
-    DropDummy1: TDropDummy;
     procedure Timer1Timer(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -60,6 +57,9 @@ type
     procedure MsgDropProgress(var Msg: TMessage); message MSG_DROPPROGRESS;
     procedure UpdateProgress(Kind: TDropProgress; Value: integer = 0);
   public
+    DataFormatAdapterTarget: TDataFormatAdapter;
+    DropEmptyTarget1: TDropEmptyTarget;
+    DropDummy1: TDropDummy;
   end;
 
 var
@@ -106,6 +106,22 @@ begin
 
   if (Version < $00050000) then
     StatusBar1.Color := clRed;
+
+  DropEmptyTarget1:= TDropEmptyTarget.Create(self);
+  DropEmptyTarget1.DragTypes := [dtCopy, dtLink];
+  DropEmptyTarget1.OnDrop := DropEmptyTarget1Drop;
+  DropEmptyTarget1.OnStartAsyncTransfer := DropEmptyTarget1StartAsyncTransfer;
+  DropEmptyTarget1.OnEndAsyncTransfer := DropEmptyTarget1EndAsyncTransfer;
+  DropEmptyTarget1.Target := PanelTarget;
+
+  DataFormatAdapterTarget:= TDataFormatAdapter.Create(self);
+  DataFormatAdapterTarget.DragDropComponent := DropEmptyTarget1;
+  DataFormatAdapterTarget.DataFormatName := 'TVirtualFileStreamDataFormat';
+  DataFormatAdapterTarget.Enabled := true;
+
+  DropDummy1:= TDropDummy.Create(self);
+  DropDummy1.DragTypes := [];
+  DropDummy1.Target := self;
 end;
 
 procedure TFormMain.FormDestroy(Sender: TObject);
@@ -212,7 +228,7 @@ var
   i: integer;
   Stream: IStream;
   StatStg: TStatStg;
-  Size, Chunk: longInt;
+  Size, Chunk: {$if CompilerVersion < 29}Longint{$else}FixedUInt{$ifend};
   Buffer: pointer;
   Progress: integer;
 begin

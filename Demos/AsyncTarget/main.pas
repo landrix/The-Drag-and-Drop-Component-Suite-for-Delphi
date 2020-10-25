@@ -15,7 +15,7 @@ interface
 
 uses
   DragDrop, DropTarget,
-  Messages,
+  Messages,Types,
   ActiveX, Windows, Classes, Controls, Forms, StdCtrls, ComCtrls, ExtCtrls;
 
 const
@@ -212,7 +212,7 @@ var
   i: integer;
   Stream: IStream;
   StatStg: TStatStg;
-  Size, Chunk: longInt;
+  Size, Chunk: {$if CompilerVersion < 29}Longint{$else}FixedUInt{$ifend};
   Buffer: pointer;
   Progress: integer;
 begin

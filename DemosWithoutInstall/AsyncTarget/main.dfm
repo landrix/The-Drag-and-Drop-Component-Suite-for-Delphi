@@ -88,10 +88,6 @@ object FormMain: TFormMain
       BevelOuter = bvNone
       BorderWidth = 4
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 185
-      ExplicitHeight = 117
       object Label1: TLabel
         Left = 4
         Top = 4
@@ -108,8 +104,8 @@ object FormMain: TFormMain
           'drop target is very slow.'
         ShowAccelChar = False
         WordWrap = True
-        ExplicitWidth = 171
-        ExplicitHeight = 156
+        ExplicitWidth = 392
+        ExplicitHeight = 78
       end
     end
   end
@@ -215,26 +211,5 @@ object FormMain: TFormMain
     OnTimer = Timer1Timer
     Left = 8
     Top = 160
-  end
-  object DataFormatAdapterTarget: TDataFormatAdapter
-    DragDropComponent = DropEmptyTarget1
-    DataFormatName = 'TVirtualFileStreamDataFormat'
-    Left = 40
-    Top = 192
-  end
-  object DropEmptyTarget1: TDropEmptyTarget
-    DragTypes = [dtCopy, dtLink]
-    OnDrop = DropEmptyTarget1Drop
-    OnStartAsyncTransfer = DropEmptyTarget1StartAsyncTransfer
-    OnEndAsyncTransfer = DropEmptyTarget1EndAsyncTransfer
-    Target = PanelTarget
-    Left = 40
-    Top = 160
-  end
-  object DropDummy1: TDropDummy
-    DragTypes = []
-    Target = Owner
-    Left = 40
-    Top = 236
   end
 end
