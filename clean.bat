@@ -10,7 +10,6 @@ del /q /s *.rsm
 del /q /s *.identcache
 del /q /s *.local
 del /q /s *.map
-del /q /s *.ico
 del /q /s *.otares
 del /q /s *.stat
 rmdir /Q /S Source\__history
