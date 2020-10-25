@@ -7,7 +7,7 @@ interface
 uses
   DragDrop, DropSource, DropTarget, DragDropFile, ActiveX,
   Windows, Classes, Controls, Forms, ExtCtrls, StdCtrls, ComCtrls, Menus,
-  ActnList;
+  ActnList, Actions, Types;
 
 type
 ////////////////////////////////////////////////////////////////////////////////
@@ -125,7 +125,8 @@ var
   i: integer;
   Stream: IStream;
   StatStg: TStatStg;
-  Total, BufferSize, Chunk, Size: longInt;
+  Total, BufferSize, Chunk: longInt;
+  Size : {$if CompilerVersion < 29}Longint{$else}FixedUInt{$ifend};
   FirstChunk: boolean;
 const
   MaxBufferSize = 32*1024; // 32Kb
@@ -159,7 +160,7 @@ begin
           // Assume that stream is at EOF, so set it to BOF.
           // See comment in TCustomSimpleClipboardFormat.DoSetData (in
           // DragDropFormats.pas) for an explanation of this.
-          Stream.Seek(0, STREAM_SEEK_SET, PLargeint(nil)^);
+          Stream.Seek(0, STREAM_SEEK_SET, {$if CompilerVersion < 29}PLargeint(nil)^{$else}PULargeinteger(nil)^{$ifend});
 
           // If a really big hunk of data has been dropped on us we display a
           // small part of it since there isn't much point in trying to display
@@ -193,7 +194,7 @@ begin
             begin
               // Display a small fraction of the first chunk.
               if (FirstChunk) then
-                Item.SubItems.Add(Copy(Buffer, 1, 1024));
+                Item.SubItems.Add(String(Copy(Buffer, 1, 1024)));
 
               p := PAnsiChar(Buffer);
               // In a real-world application we would write the buffer to disk
@@ -205,7 +206,7 @@ begin
           end;
           // Display a small fraction of the first chunk.
           if (FirstChunk) then
-            Item.SubItems.Add(Copy(Buffer, 1, 1024));
+            Item.SubItems.Add(String(Copy(Buffer, 1, 1024)));
 
         end else
           Item.SubItems.Add('***failed to read content***');
@@ -336,7 +337,7 @@ begin
         if (SelIndex = Index) then
         begin
           // Get the data stored in the listview item and...
-          Data := ListView1.Items[i].SubItems[0];
+          Data := AnsiString(ListView1.Items[i].SubItems[0]);
           Found := True;
           break;
         end;

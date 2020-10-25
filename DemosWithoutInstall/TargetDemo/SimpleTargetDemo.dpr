@@ -1,5 +1,7 @@
 program SimpleTargetDemo;
 
+{%File 'readme.txt'}
+
 uses
   Forms,
   Main in 'Main.pas' {Form1};

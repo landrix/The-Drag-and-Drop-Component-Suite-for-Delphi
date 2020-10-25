@@ -7,9 +7,8 @@ unit ContextMenuHandlerMain;
 interface
 
 uses
-  DragDrop, DropTarget, DragDropContext,
   Forms, ShlObj, SysUtils, Classes, Menus, Windows, Graphics, ImgList,
-  Controls;
+  Controls, DragDrop, DragDropContext;
 
 {$include 'DragDrop.inc'}
 

@@ -7,7 +7,7 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   ComCtrls, ActiveX, ShellApi, ShlObj, Buttons, ExtCtrls, DropSource,
-  StdCtrls, DropTarget, CommCtrl, FileCtrl, DragDrop, DragDropFile;
+  StdCtrls, DropTarget, CommCtrl, DragDrop, DragDropFile;
 
 type
 

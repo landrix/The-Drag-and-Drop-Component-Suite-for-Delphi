@@ -7,7 +7,7 @@ uses
   DropTarget,
   DropSource,
   DragDropText,
-  Windows, Classes, Graphics, Forms, StdCtrls, Controls;
+  Windows, Classes, Graphics, Forms, StdCtrls, Controls,Types;
 
 type
   TForm1 = class(TForm)

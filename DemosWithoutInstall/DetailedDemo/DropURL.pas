@@ -11,8 +11,8 @@ uses
   DropTarget,
   DragDropGraphics,
   DragDropInternet,
-  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  StdCtrls, ComCtrls, ExtCtrls, ActiveX, CommCtrl, Menus;
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,Types,
+  StdCtrls, ComCtrls, ExtCtrls, ActiveX, CommCtrl, Menus, System.ImageList;
 
 type
   TFormURL = class(TForm)
@@ -148,7 +148,7 @@ begin
     try
       // Copy the data into the drop source.
       DropURLSource1.Title := PanelURL.Caption;
-      DropURLSource1.URL := LabelURL.Caption;
+      DropURLSource1.URL := AnsiString(LabelURL.Caption);
 
       // Temporarily disable Edit1 as a drop target.
       DropURLTarget1.DragTypes := [];
@@ -171,7 +171,7 @@ procedure TFormURL.DropURLTarget1Drop(Sender: TObject;
 begin
   // An URL has been dropped - Copy the URL and title from the drop target.
   PanelURL.Caption := DropURLTarget1.Title;
-  LabelURL.Caption := DropURLTarget1.URL;
+  LabelURL.Caption := String(DropURLTarget1.URL);
 end;
 
 //------------------------------------------------------------------------------

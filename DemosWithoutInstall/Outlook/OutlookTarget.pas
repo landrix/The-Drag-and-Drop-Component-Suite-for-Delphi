@@ -7,10 +7,10 @@ interface
 uses
   ActiveX,//!!!
 
-  MapiDefs,
+  MapiDefs,Types,
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   ExtCtrls, ComCtrls, StdCtrls, DragDrop, DropTarget, DragDropText, ImgList,
-  Menus, ActnList, Actions, Types, System.ImageList;
+  Menus, ActnList, System.Actions, System.ImageList;
 
 type
   TMessage = class(TObject)
@@ -358,7 +358,7 @@ begin
 //    if ((Win32MajorVersion shl 16) or Win32MinorVersion < $00050001) then
 //      MapiInit.Flags := MapiInit.Flags or MAPI_NO_COINIT;
 
-//    OleCheck(MAPIInitialize(@MapiInit));
+    OleCheck(MAPIInitialize(@MapiInit));
   except
     on E: Exception do
       ShowMessage(Format('Failed to initialize MAPI: %s', [E.Message]));
@@ -703,8 +703,8 @@ var
   Buffer: array of byte;
   Data: TMemoryStream;
   SourceStream: IStream;
-  Size: FixedUInt;
-  Dummy: UInt64;
+  Size: {$if CompilerVersion < 29}Longint{$else}FixedUInt{$ifend};
+  Dummy: {$if CompilerVersion < 29}Int64{$else}UInt64{$ifend};
 const
   BufferSize = 64*1024; // 64Kb
   MaxMessageSize = 256*1024; // 256 Kb
@@ -786,7 +786,7 @@ var
 
   FileName: AnsiString;
   SourceStream, DestStream: IStream;
-  Dummy: UInt64;
+  Dummy: {$if CompilerVersion < 29}Int64{$else}UInt64{$ifend};
 
   Msg: IMessage;
 begin
@@ -970,7 +970,7 @@ var
   s: string;
   Size: integer;
   Stream: IStream;
-  Pos: UInt64;
+  Pos: {$if CompilerVersion < 29}LargeInt{$else}LargeUInt{$ifend};
   Msg: IMessage;
   SHFileInfo: TSHFileInfo;
 begin

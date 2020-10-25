@@ -279,8 +279,6 @@ object FormURL: TFormURL
       PopupMenu = PopupMenu1
       Transparent = True
       OnMouseDown = ImageMouseDown
-      ExplicitWidth = 52
-      ExplicitHeight = 48
     end
   end
   object PanelImageSource1: TPanel
@@ -351,8 +349,6 @@ object FormURL: TFormURL
       PopupMenu = PopupMenu1
       Transparent = True
       OnMouseDown = ImageMouseDown
-      ExplicitWidth = 52
-      ExplicitHeight = 48
     end
   end
   object PanelURL: TPanel

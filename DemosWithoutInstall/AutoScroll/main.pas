@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  ComCtrls, StdCtrls, Grids, ExtCtrls,
+  ComCtrls, StdCtrls, Grids, ExtCtrls,Types,
   DropSource, DragDropText, DragDrop, DropTarget;
 
 type

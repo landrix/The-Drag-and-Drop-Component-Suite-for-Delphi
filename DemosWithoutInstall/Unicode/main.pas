@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ComCtrls, DropSource, DragDropFile, DragDrop, DropTarget,
-  ExtCtrls, DragDropText, ActnList, Menus;
+  ExtCtrls, DragDropText, ActnList, Menus, System.Actions;
 
 type
   TForm1 = class(TForm)
