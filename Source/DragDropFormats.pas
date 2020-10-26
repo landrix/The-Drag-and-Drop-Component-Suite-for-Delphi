@@ -1047,7 +1047,7 @@ begin
     Size := StatStg.cbSize;
     Medium.tymed := TYMED_ISTREAM;
     Medium.unkForRelease := nil;
-    Medium.stm := pointer(Stream);
+    Medium.stm := Pointer(Stream);
     if (Result) and (Size > 0) then
       // Read the given amount of data.
       Result := DoGetDataSized(ADataObject, Medium, Size);
@@ -1294,13 +1294,13 @@ begin
       OleStream := TOLEStream.Create(Stream);
       Stream := TFixedStreamAdapter.Create(OleStream, soOwned) as IStream;
 
-      IStream(AMedium.stm) := Stream;
+      AMedium.stm := Stream;
     except
       Result := False;
     end;
 
     if (not Result) then
-      IStream(AMedium.stm) := nil
+      AMedium.stm := nil
     else
       AMedium.tymed := TYMED_ISTREAM;
 
