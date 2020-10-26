@@ -343,7 +343,7 @@ const
   MAPI_NO_COINIT = $00000008;
 
 var
-  MapiInit: TMAPIINIT_0 = (Version: MAPI_INIT_VERSION; Flags: 0);
+  MapiInit: TMAPIINIT_0 = (Version: MAPI_INIT_VERSION; Flags: 0); //https://docs.microsoft.com/de-de/office/client-developer/outlook/mapi/mapiinit_0
 
 procedure TFormOutlookTarget.FormCreate(Sender: TObject);
 var
@@ -358,6 +358,9 @@ begin
 //    if ((Win32MajorVersion shl 16) or Win32MinorVersion < $00050001) then
 //      MapiInit.Flags := MapiInit.Flags or MAPI_NO_COINIT;
 
+   {$IFDEF WIN64}
+   MAPIInitialize don't works under Win64???
+   {$ENDIF}
     OleCheck(MAPIInitialize(@MapiInit));
   except
     on E: Exception do
@@ -397,6 +400,7 @@ begin
   DataFormatAdapterOutlook.Name := 'DataFormatAdapterOutlook';
   DataFormatAdapterOutlook.DragDropComponent := DropEmptyTarget1;
   DataFormatAdapterOutlook.DataFormatName := 'TOutlookDataFormat';
+  DataFormatAdapterOutlook.Enabled := true;
 end;
 
 procedure TFormOutlookTarget.FormDestroy(Sender: TObject);
