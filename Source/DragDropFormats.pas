@@ -1292,15 +1292,14 @@ begin
       **   Stream.Seek(0, STREAM_SEEK_SET, {$if CompilerVersion < 29}PLargeInt{$else}PUInt64{$ifend}(nil)^);
       *)
       OleStream := TOLEStream.Create(Stream);
-      Stream := TFixedStreamAdapter.Create(OleStream, soOwned) as IStream;
 
-      AMedium.stm := Stream;
+      IStream(AMedium.stm) := TFixedStreamAdapter.Create(OleStream, soOwned);
     except
       Result := False;
     end;
 
     if (not Result) then
-      AMedium.stm := nil
+      IStream(AMedium.stm) := nil
     else
       AMedium.tymed := TYMED_ISTREAM;
 
