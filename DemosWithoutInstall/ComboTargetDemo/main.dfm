@@ -12,6 +12,7 @@ object FormMain: TFormMain
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object PageControl1: TPageControl
@@ -227,8 +228,6 @@ object FormMain: TFormMain
         Align = alClient
         Caption = ' Accept the following formats '
         TabOrder = 0
-        ExplicitLeft = -2
-        ExplicitTop = -2
         object CheckBoxText: TCheckBox
           Left = 12
           Top = 20
@@ -297,13 +296,5 @@ object FormMain: TFormMain
         end
       end
     end
-  end
-  object DropComboTarget1: TDropComboTarget
-    DragTypes = [dtCopy, dtLink]
-    OnDrop = DropComboTarget1Drop
-    Target = Owner
-    OptimizedMove = True
-    Left = 196
-    Top = 80
   end
 end

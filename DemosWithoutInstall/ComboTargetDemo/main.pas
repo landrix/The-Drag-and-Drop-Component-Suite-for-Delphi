@@ -14,7 +14,6 @@ uses
 
 type
   TFormMain = class(TForm)
-    DropComboTarget1: TDropComboTarget;
     PageControl1: TPageControl;
     TabSheetText: TTabSheet;
     TabSheetFiles: TTabSheet;
@@ -55,10 +54,9 @@ type
     procedure CheckBoxMetaFilesClick(Sender: TObject);
     procedure CheckBoxDataClick(Sender: TObject);
     procedure ListViewDataDblClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
-    { Private declarations }
-  public
-    { Public declarations }
+    DropComboTarget1: TDropComboTarget;
   end;
 
 var
@@ -126,6 +124,15 @@ begin
     (TMetaFile(ImageMetaFile.Picture.Graphic).Handle <> 0);
   TabSheetText.TabVisible := (MemoText.Lines.Count > 0);
   TabSheetData.TabVisible := (ListViewData.Items.Count > 0);
+end;
+
+procedure TFormMain.FormCreate(Sender: TObject);
+begin
+  DropComboTarget1 := TDropComboTarget.Create(Self);
+  DropComboTarget1.Name := 'DropComboTarget1';
+  DropComboTarget1.DragTypes := [dtCopy, dtLink];
+  DropComboTarget1.OnDrop := DropComboTarget1Drop;
+  DropComboTarget1.Target := self;
 end;
 
 procedure TFormMain.CheckBoxTextClick(Sender: TObject);
