@@ -114,19 +114,4 @@ object FormAutoScroll: TFormAutoScroll
       ExplicitHeight = 117
     end
   end
-  object DropTextTarget1: TDropTextTarget
-    DragTypes = [dtCopy]
-    OnEnter = DropTextTarget1Enter
-    OnDragOver = DropTextTarget1DragOver
-    OnDrop = DropTextTarget1Drop
-    Target = StringGrid1
-    Left = 24
-    Top = 56
-  end
-  object DropTextSource1: TDropTextSource
-    DragTypes = [dtCopy]
-    OnFeedback = DropTextSource1Feedback
-    Left = 24
-    Top = 8
-  end
 end

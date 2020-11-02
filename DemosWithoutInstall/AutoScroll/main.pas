@@ -9,12 +9,10 @@ uses
 
 type
   TFormAutoScroll = class(TForm)
-    DropTextTarget1: TDropTextTarget;
     Panel1: TPanel;
     StringGrid1: TStringGrid;
     PanelSource: TPanel;
     Panel3: TPanel;
-    DropTextSource1: TDropTextSource;
     Label1: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure PanelSourceMouseDown(Sender: TObject; Button: TMouseButton;
@@ -28,9 +26,8 @@ type
     procedure DropTextSource1Feedback(Sender: TObject; Effect: Integer;
       var UseDefaultCursors: Boolean);
   private
-    { Private declarations }
-  public
-    { Public declarations }
+    DropTextSource1: TDropTextSource;
+    DropTextTarget1: TDropTextTarget;
   end;
 
 var
@@ -55,6 +52,19 @@ begin
   for i := ord('A') to ord('Z') do
     for j := 0 to StringGrid1.ColCount-1 do
       StringGrid1.Cells[1+j, 1+i-ord('A')] := chr(i)+IntToStr(j);
+
+  DropTextSource1 := TDropTextSource.Create(Self);
+  DropTextSource1.Name := 'DropTextSource1';
+  DropTextSource1.DragTypes := [dtCopy];
+  DropTextSource1.OnFeedback := DropTextSource1Feedback;
+
+  DropTextTarget1 := TDropTextTarget.Create(Self);
+  DropTextTarget1.Name := 'DropTextTarget1';
+  DropTextTarget1.DragTypes := [dtCopy];
+  DropTextTarget1.OnEnter := DropTextTarget1Enter;
+  DropTextTarget1.OnDragOver := DropTextTarget1DragOver;
+  DropTextTarget1.OnDrop := DropTextTarget1Drop;
+  DropTextTarget1.Target := StringGrid1;
 
   // Slow auto scroll down to 1 scroll every 100mS.
   // The default value is 50.
