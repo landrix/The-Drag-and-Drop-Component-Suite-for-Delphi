@@ -97,9 +97,4 @@ object FormSource: TFormSource
     Left = 52
     Top = 32
   end
-  object DropTextSource1: TDropTextSource
-    DragTypes = [dtCopy]
-    Left = 16
-    Top = 32
-  end
 end

@@ -14,16 +14,13 @@ type
   TFormTarget = class(TForm)
     Panel2: TPanel;
     PanelDest: TPanel;
-    DropTextTarget1: TDropTextTarget;
     Panel5: TPanel;
     procedure DropTextTarget1Drop(Sender: TObject; ShiftState: TShiftState;
       Point: TPoint; var Effect: Integer);
     procedure FormCreate(Sender: TObject);
   private
-    { Private declarations }
+    DropTextTarget1: TDropTextTarget;
     TimeDataFormatTarget: TGenericDataFormat;
-  public
-    { Public declarations }
   end;
 
 var
@@ -38,6 +35,13 @@ uses
 
 procedure TFormTarget.FormCreate(Sender: TObject);
 begin
+  DropTextTarget1 := TDropTextTarget.Create(Self);
+  DropTextTarget1.Name := 'DropTextTarget1';
+  DropTextTarget1.DragTypes := [dtCopy, dtLink];
+  DropTextTarget1.OnDrop := DropTextTarget1Drop;
+  DropTextTarget1.Target := PanelDest;
+  DropTextTarget1.WinTarget := 0;
+
   // Define and register our custom clipboard format.
   // This needs to be done for both the drop source and target.
 

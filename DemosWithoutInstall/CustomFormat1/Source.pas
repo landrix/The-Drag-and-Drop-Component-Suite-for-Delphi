@@ -15,7 +15,6 @@ type
     Panel1: TPanel;
     PanelSource: TPanel;
     Timer1: TTimer;
-    DropTextSource1: TDropTextSource;
     Panel3: TPanel;
     Memo1: TMemo;
     Panel4: TPanel;
@@ -24,10 +23,8 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure FormCreate(Sender: TObject);
   private
-    { Private declarations }
+    DropTextSource1: TDropTextSource;
     TimeDataFormatSource: TGenericDataFormat;
-  public
-    { Public declarations }
   end;
 
 var
@@ -42,6 +39,10 @@ uses
 
 procedure TFormSource.FormCreate(Sender: TObject);
 begin
+  DropTextSource1 := TDropTextSource.Create(Self);
+  DropTextSource1.Name := 'DropTextSource1';
+  DropTextSource1.DragTypes := [dtCopy];
+
   // Define and register our custom clipboard format.
   // This needs to be done for both the drop source and target.
   TimeDataFormatSource := TGenericDataFormat.Create(DropTextSource1);
