@@ -60,11 +60,11 @@ end;
 
 procedure TFormOutlookSource.FormCreate(Sender: TObject);
 begin
-  FOutlookDataFormat := TOutlookDataFormat.Create(DropEmptySource1);
-
   DropEmptySource1 := TDropEmptySource.Create(self);
   DropEmptySource1.DragTypes := [dtCopy, dtMove, dtLink];
   DropEmptySource1.AllowAsyncTransfer := True;
+
+  FOutlookDataFormat := TOutlookDataFormat.Create(DropEmptySource1);
 
   DropFileTarget1 := TDropFileTarget.Create(self);
   DropFileTarget1.DragTypes := [dtCopy, dtLink];
@@ -72,6 +72,7 @@ begin
   DropFileTarget1.Target := Memo1;
   DropFileTarget1.AutoScroll := False;
   DropFileTarget1.OptimizedMove := True;
+  DropFileTarget1.Enabled := true;
 end;
 
 procedure TFormOutlookSource.FormMouseDown(Sender: TObject; Button: TMouseButton;

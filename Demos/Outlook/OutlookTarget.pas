@@ -358,6 +358,9 @@ begin
 //    if ((Win32MajorVersion shl 16) or Win32MinorVersion < $00050001) then
 //      MapiInit.Flags := MapiInit.Flags or MAPI_NO_COINIT;
 
+    {$IFDEF WIN64}
+    MAPIInitialize don't works under Win64???
+    {$ENDIF}
     OleCheck(MAPIInitialize(@MapiInit));
   except
     on E: Exception do
