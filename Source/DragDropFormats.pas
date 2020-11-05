@@ -1291,7 +1291,14 @@ begin
       **
       **   Stream.Seek(0, STREAM_SEEK_SET, {$if CompilerVersion < 29}PLargeInt{$else}PUInt64{$ifend}(nil)^);
       *)
+
       OleStream := TOLEStream.Create(Stream);
+
+      //this following code rises a memory leak in madexcept
+      //to prevent this info, add
+      //uses madexcept
+      //HideLeak(TFixedStreamAdapter,1);
+      //HideLeak('GlobalAlloc');
 
       IStream(AMedium.stm) := TFixedStreamAdapter.Create(OleStream, soOwned);
     except
