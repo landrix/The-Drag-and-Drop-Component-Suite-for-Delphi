@@ -47,11 +47,4 @@ object FormTarget: TFormTarget
       TabOrder = 1
     end
   end
-  object DropTextTarget1: TDropTextTarget
-    DragTypes = [dtCopy, dtLink]
-    OnDrop = DropTextTarget1Drop
-    Target = PanelDest
-    Left = 16
-    Top = 32
-  end
 end
