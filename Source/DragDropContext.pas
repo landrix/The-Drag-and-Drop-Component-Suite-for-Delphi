@@ -324,7 +324,7 @@ function TDropContextMenu.QueryContextMenu(Menu: HMENU; indexMenu, idCmdFirst,
       MenuItemInfo.cbSize := SizeOf(MenuItemInfo);
       MenuItemInfo.fMask := MIIM_ID or MIIM_DATA;
       MenuItemInfo.wID := MenuID;
-      MenuItemInfo.dwItemData := integer(MenuItem);
+      MenuItemInfo.dwItemData := ULONG_PTR(MenuItem);
 
       Win32Check(SetMenuItemInfo(MenuItem.Parent.Handle, MenuIndex, True, MenuItemInfo));
 
@@ -420,7 +420,7 @@ begin
 
         // Store a reference to the TMenuItem
         MenuItemInfo.fMask := MenuItemInfo.fMask or MIIM_DATA;
-        MenuItemInfo.dwItemData := integer(FContextMenu.Items[i]);
+        MenuItemInfo.dwItemData := ULONG_PTR(FContextMenu.Items[i]);
 
         if (IsLine(FContextMenu.Items[i])) then
         begin
