@@ -13,6 +13,7 @@ object FormMain: TFormMain
   Font.Name = 'MS Shell Dlg 2'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -75,6 +76,8 @@ object FormMain: TFormMain
         ' Outlook and many others.'
       ShowAccelChar = False
       WordWrap = True
+      ExplicitWidth = 401
+      ExplicitHeight = 39
     end
     object PanelDragDrop: TPanel
       Left = 4
@@ -87,13 +90,8 @@ object FormMain: TFormMain
       BorderWidth = 4
       Caption = ' '
       TabOrder = 0
+      OnMouseDown = OnMouseDown
     end
-  end
-  object DropDummy1: TDropDummy
-    DragTypes = []
-    Target = Owner
-    Left = 60
-    Top = 148
   end
   object ImageList1: TImageList
     DrawingStyle = dsTransparent
@@ -636,21 +634,6 @@ object FormMain: TFormMain
       F007FFFF000000000000000000000000F80FFFFF000000000000000000000000
       FC1FFFFF00000000000000000000000000000000000000000000000000000000
       000000000000}
-  end
-  object DropEmptySource1: TDropEmptySource
-    DragTypes = [dtCopy]
-    Images = ImageList1
-    ShowImage = True
-    Left = 60
-    Top = 52
-  end
-  object DropEmptyTarget1: TDropEmptyTarget
-    DragTypes = [dtCopy, dtLink]
-    OnDrop = DropFileTarget1Drop
-    Target = PanelDragDrop
-    OptimizedMove = True
-    Left = 60
-    Top = 100
   end
   object PopupMenu1: TPopupMenu
     Left = 268

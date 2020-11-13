@@ -33,12 +33,9 @@ type
     Label1: TLabel;
     MemoContents: TMemo;
     Label2: TLabel;
-    DropDummy1: TDropDummy;
     Panel2: TPanel;
     PanelDragDrop: TPanel;
     ImageList1: TImageList;
-    DropEmptySource1: TDropEmptySource;
-    DropEmptyTarget1: TDropEmptyTarget;
     Label3: TLabel;
     PopupMenu1: TPopupMenu;
     MenuCopy: TMenuItem;
@@ -56,11 +53,11 @@ type
     procedure ActionPasteExecute(Sender: TObject);
     procedure ActionPasteUpdate(Sender: TObject);
   private
-    { Private declarations }
+    DropEmptyTarget1: TDropEmptyTarget;
+    DropEmptySource1: TDropEmptySource;
+    DropDummy1: TDropDummy;
     FSourceDataFormat: TVirtualFileDataFormat;
     FTargetDataFormat: TVirtualFileDataFormat;
-  public
-    { Public declarations }
   end;
 
 var
@@ -79,6 +76,28 @@ uses
 
 procedure TFormMain.FormCreate(Sender: TObject);
 begin
+  DropEmptySource1 := TDropEmptySource.Create(Self);
+  DropEmptySource1.Name := 'DropEmptySource1';
+  DropEmptySource1.DragTypes := [dtCopy];
+  DropEmptySource1.Images := ImageList1;
+  DropEmptySource1.ShowImage := True;
+
+  DropEmptyTarget1 := TDropEmptyTarget.Create(Self);
+  DropEmptyTarget1.Name := 'DropEmptyTarget1';
+  DropEmptyTarget1.DragTypes := [dtCopy, dtLink];
+  DropEmptyTarget1.OnDrop := DropFileTarget1Drop;
+  DropEmptyTarget1.Target := PanelDragDrop;
+  DropEmptyTarget1.WinTarget := 0;
+  DropEmptyTarget1.OptimizedMove := True;
+  DropEmptyTarget1.Enabled := true;
+
+  DropDummy1 := TDropDummy.Create(Self);
+  DropDummy1.Name := 'DropDummy1';
+  DropDummy1.DragTypes := [];
+  DropDummy1.Target := self;
+  DropDummy1.WinTarget := 0;
+  DropDummy1.Enabled := true;
+
   // Add our own custom data format to the drag/drop components.
   FSourceDataFormat := TVirtualFileDataFormat.Create(DropEmptySource1);
   FTargetDataFormat := TVirtualFileDataFormat.Create(DropEmptyTarget1);

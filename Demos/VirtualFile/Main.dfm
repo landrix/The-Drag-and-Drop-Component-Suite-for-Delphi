@@ -13,6 +13,7 @@ object FormMain: TFormMain
   Font.Name = 'MS Shell Dlg 2'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -89,6 +90,7 @@ object FormMain: TFormMain
       BorderWidth = 4
       Caption = ' '
       TabOrder = 0
+      OnMouseDown = OnMouseDown
     end
   end
   object DropDummy1: TDropDummy
