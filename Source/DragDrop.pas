@@ -2503,10 +2503,8 @@ finalization
   // Note: Due to unit finalization order, is is possible for the following two
   // objects to be recreated after this units' finalization has executed.
   // If that happens it will result in a harmless one-time memory leak.
-  if (FDataFormatMap <> nil) then
-    FDataFormatMap.Free;
-  if (FDataFormatClasses <> nil) then
-    FDataFormatClasses.Free;
+  FreeAndNil(FDataFormatMap);
+  FreeAndNil(FDataFormatClasses);
 
   ShellMalloc := nil;
 
