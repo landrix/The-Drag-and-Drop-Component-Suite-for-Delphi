@@ -1652,6 +1652,8 @@ begin
   ASSERT(FDataFormatMap = nil);
   inherited Create;
   FList := TList.Create;
+  RegisterExpectedMemoryLeak(FDataFormatMap);
+  RegisterExpectedMemoryLeak(FList);
 end;
 
 destructor TDataFormatMap.Destroy;
