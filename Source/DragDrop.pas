@@ -1568,7 +1568,6 @@ end;
 
 constructor TDataFormatClasses.Create;
 begin
-  ASSERT(FDataFormatClasses = nil);
   inherited Create;
   FList := TList.Create;
 end;
@@ -1577,12 +1576,10 @@ destructor TDataFormatClasses.Destroy;
 var
   i: integer;
 begin
-  ASSERT(FDataFormatClasses = self);
   for i := FList.Count-1 downto 0 do
     Remove(TDataFormatClass(FList[i]));
   FList.Free;
   inherited Destroy;
-  FDataFormatClasses := nil;
 end;
 
 class function TDataFormatClasses.GetCount: integer;
@@ -1649,7 +1646,6 @@ var
 
 constructor TDataFormatMap.Create;
 begin
-  ASSERT(FDataFormatMap = nil);
   inherited Create;
   FList := TList.Create;
   RegisterExpectedMemoryLeak(FDataFormatMap);
@@ -1660,14 +1656,12 @@ destructor TDataFormatMap.Destroy;
 var
   i: integer;
 begin
-  ASSERT(FDataFormatMap = self);
   // Zap any mapings which hasn't been unregistered
   // yet (actually an error condition)
   for i := FList.Count-1 downto 0 do
     Dispose(FList[i]);
   FList.Free;
   inherited Destroy;
-  FDataFormatMap := nil;
 end;
 
 procedure TDataFormatMap.Sort;
