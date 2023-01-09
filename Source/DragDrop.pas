@@ -1605,7 +1605,8 @@ end;
 
 class procedure TDataFormatClasses.Remove(DataFormat: TDataFormatClass);
 begin
-  Instance.FList.Remove(DataFormat);
+  if Assigned(FDataFormatClasses) then
+    Instance.FList.Remove(DataFormat);
 end;
 
 {$IF CompilerVersion < 17.0}
