@@ -76,8 +76,6 @@ object FormMain: TFormMain
         ' Outlook and many others.'
       ShowAccelChar = False
       WordWrap = True
-      ExplicitWidth = 401
-      ExplicitHeight = 39
     end
     object PanelDragDrop: TPanel
       Left = 4

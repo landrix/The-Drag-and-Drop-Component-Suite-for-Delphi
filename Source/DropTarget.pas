@@ -1,4 +1,4 @@
-unit DropTarget;
+﻿unit DropTarget;
 // -----------------------------------------------------------------------------
 // Project:         New Drag and Drop Component Suite
 // Module:          DragDrop
@@ -1137,7 +1137,7 @@ begin
 
   // Unregister previous target unless MultiTarget is enabled (for backwards
   // compatibility).
-  if (not FMultiTarget) and not(csLoading in ComponentState) then
+  if (not FMultiTarget) and not (csLoading in ComponentState) then
     Unregister;
 
   if (ATarget = nil) then

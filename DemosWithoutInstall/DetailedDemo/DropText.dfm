@@ -147,33 +147,8 @@ object FormText: TFormText
     Font.Height = -16
     Font.Name = 'MS Shell Dlg 2'
     Font.Style = [fsBold]
+    ParentBackground = False
     ParentFont = False
     TabOrder = 7
-  end
-  object DropSource1: TDropTextSource
-    DragTypes = [dtCopy]
-    OnFeedback = DropSourceFeedback
-    Left = 16
-    Top = 51
-  end
-  object DropTextTarget1: TDropTextTarget
-    DragTypes = [dtCopy, dtLink]
-    OnDrop = DropTextTarget1Drop
-    Target = Edit1
-    Left = 416
-    Top = 80
-  end
-  object DropTextTarget2: TDropTextTarget
-    DragTypes = [dtCopy]
-    OnDrop = DropTextTarget2Drop
-    Target = Edit2
-    Left = 418
-    Top = 216
-  end
-  object DropDummy1: TDropDummy
-    DragTypes = []
-    Target = Owner
-    Left = 416
-    Top = 48
   end
 end

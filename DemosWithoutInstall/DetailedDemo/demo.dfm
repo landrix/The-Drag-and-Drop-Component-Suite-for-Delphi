@@ -95,6 +95,7 @@ object FormDemo: TFormDemo
       BevelOuter = bvNone
       BorderStyle = bsSingle
       Color = clGray
+      ParentBackground = False
       TabOrder = 4
       object Label2: TLabel
         Left = 79
@@ -176,6 +177,7 @@ object FormDemo: TFormDemo
       Font.Height = -16
       Font.Name = 'Arial'
       Font.Style = [fsBold]
+      ParentBackground = False
       ParentFont = False
       TabOrder = 5
     end

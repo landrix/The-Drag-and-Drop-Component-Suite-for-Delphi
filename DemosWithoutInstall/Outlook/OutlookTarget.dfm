@@ -12,12 +12,10 @@ object FormOutlookTarget: TFormOutlookTarget
   Font.Height = -11
   Font.Name = 'MS Shell Dlg 2'
   Font.Style = []
-  OldCreateOrder = False
   PopupMenu = PopupMenuMain
   ShowHint = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  PixelsPerInch = 96
   TextHeight = 13
   object SplitterBrowser: TSplitter
     Left = 250
@@ -240,7 +238,6 @@ object FormOutlookTarget: TFormOutlookTarget
       ScrollBars = ssBoth
       TabOrder = 3
       WantReturns = False
-      Zoom = 100
     end
     object ListViewAttachments: TListView
       Left = 0

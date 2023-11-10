@@ -12,7 +12,6 @@ object FormFile: TFormFile
   Font.Height = -11
   Font.Name = 'MS Shell Dlg 2'
   Font.Style = []
-  OldCreateOrder = True
   Position = poMainFormCenter
   Scaled = False
   ShowHint = True
@@ -21,7 +20,6 @@ object FormFile: TFormFile
   DesignSize = (
     516
     373)
-  PixelsPerInch = 96
   TextHeight = 13
   object Memo1: TMemo
     Left = 10
@@ -80,6 +78,7 @@ object FormFile: TFormFile
     Font.Height = -16
     Font.Name = 'MS Shell Dlg 2'
     Font.Style = [fsBold]
+    ParentBackground = False
     ParentFont = False
     TabOrder = 3
   end
@@ -106,27 +105,6 @@ object FormFile: TFormFile
     TabOrder = 5
     ViewStyle = vsReport
     OnMouseDown = ListView1MouseDown
-  end
-  object DropFileTarget1: TDropFileTarget
-    DragTypes = [dtCopy, dtMove, dtLink]
-    GetDataOnEnter = True
-    OnEnter = DropFileTarget1Enter
-    OnDrop = DropFileTarget1Drop
-    OnGetDropEffect = DropFileTarget1GetDropEffect
-    Target = ListView1
-    OptimizedMove = True
-    Left = 328
-    Top = 200
-  end
-  object DropSource1: TDropFileSource
-    DragTypes = [dtCopy, dtMove, dtLink]
-    OnFeedback = DropSource1Feedback
-    OnAfterDrop = DropSource1AfterDrop
-    OnPaste = DropSource1Paste
-    Images = ImageListMultiFile
-    ShowImage = True
-    Left = 320
-    Top = 112
   end
   object ImageListMultiFile: TImageList
     BkColor = clWhite
@@ -669,12 +647,6 @@ object FormFile: TFormFile
       C0000000000000000000000000000000C0000000000000000000000000000000
       C000000000000000000000000000000000000000000000000000000000000000
       000000000000}
-  end
-  object DropDummy1: TDropDummy
-    DragTypes = []
-    Target = Owner
-    Left = 256
-    Top = 128
   end
   object PopupMenu1: TPopupMenu
     OnPopup = PopupMenu1Popup

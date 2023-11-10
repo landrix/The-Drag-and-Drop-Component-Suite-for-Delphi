@@ -14,12 +14,9 @@ type
     Label1: TLabel;
     MemoLeft: TMemo;
     MemoRight: TMemo;
-    DropTextTarget1: TDropTextTarget;
     CheckBoxLeft: TCheckBox;
     CheckBoxRight: TCheckBox;
     MemoSource: TMemo;
-    DropTextSource1: TDropTextSource;
-    DropDummy1: TDropDummy;
     procedure FormDestroy(Sender: TObject);
     procedure CheckBoxLeftClick(Sender: TObject);
     procedure CheckBoxRightClick(Sender: TObject);
@@ -32,8 +29,11 @@ type
       Point: TPoint; var Effect: Integer);
     procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Integer);
+    procedure FormCreate(Sender: TObject);
   private
-  public
+    DropTextTarget1: TDropTextTarget;
+    DropTextSource1: TDropTextSource;
+    DropDummy1: TDropDummy;
   end;
 
 var
@@ -42,6 +42,40 @@ var
 implementation
 
 {$R *.DFM}
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  DropTextTarget1:= TDropTextTarget.Create(self);
+  DropTextTarget1.DragTypes := [dtCopy];
+  DropTextTarget1.OnEnter := DropTextTarget1Enter;
+  DropTextTarget1.OnLeave := DropTextTarget1Leave;
+  DropTextTarget1.OnDrop := DropTextTarget1Drop;
+  DropTextTarget1.MultiTarget := True;
+
+  DropTextSource1 := TDropTextSource.Create(self);
+  DropTextSource1.DragTypes := [dtCopy];
+
+  DropDummy1:= TDropDummy.Create(self);
+  DropDummy1.DragTypes := [dtCopy, dtMove, dtLink];
+  DropDummy1.Target := self;
+end;
+
+procedure TForm1.FormDestroy(Sender: TObject);
+begin
+  // Unregister all targets.
+  // This is not strictly nescessary since the target component will perform
+  // the unregistration automatically when it is destroyed. Feel free to skip
+  // this step if you like.
+  if Assigned(DropTextTarget1) then
+  begin
+    DropTextTarget1.Unregister;
+    DropTextTarget1.Free;
+    DropTextTarget1 := nil;
+  end;
+
+  if Assigned(DropDummy1) then begin DropDummy1.Free; DropDummy1 := nil; end;
+  if Assigned(DropTextSource1) then begin DropTextSource1.Free; DropTextSource1 := nil; end;
+end;
 
 procedure TForm1.MemoSourceMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
@@ -52,15 +86,6 @@ begin
     DropTextSource1.Text := MemoSource.Lines.Text;
     DropTextSource1.Execute;
   end;
-end;
-
-procedure TForm1.FormDestroy(Sender: TObject);
-begin
-  // Unregister all targets.
-  // This is not strictly nescessary since the target component will perform
-  // the unregistration automatically when it is destroyed. Feel free to skip
-  // this step if you like.
-  DropTextTarget1.Unregister;
 end;
 
 procedure TForm1.CheckBoxLeftClick(Sender: TObject);

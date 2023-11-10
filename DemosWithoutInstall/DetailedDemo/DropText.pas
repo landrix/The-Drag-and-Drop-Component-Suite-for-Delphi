@@ -15,7 +15,6 @@ uses
 type
   TFormText = class(TForm)
     Memo1: TMemo;
-    DropSource1: TDropTextSource;
     ButtonClose: TButton;
     Edit2: TEdit;
     StatusBar1: TStatusBar;
@@ -23,9 +22,6 @@ type
     Edit1: TEdit;
     ButtonClipboard: TButton;
     Panel1: TPanel;
-    DropTextTarget1: TDropTextTarget;
-    DropTextTarget2: TDropTextTarget;
-    DropDummy1: TDropDummy;
     procedure ButtonCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -44,11 +40,13 @@ type
     //used by bottom example
     OldEdit2WindowProc: TWndMethod;
     procedure NewEdit2WindowProc(var Msg : TMessage);
-
     function MouseIsOverEdit2Selection(XPos: integer): boolean;
     procedure StartEdit2Drag;
   public
-    { Public declarations }
+    DropDummy1 : TDropDummy;
+    DropSource1 : TDropTextSource;
+    DropTextTarget1: TDropTextTarget;
+    DropTextTarget2: TDropTextTarget;
   end;
 
 var
@@ -70,6 +68,34 @@ const
 //----------------------------------------------------------------------------
 procedure TFormText.FormCreate(Sender: TObject);
 begin
+  DropDummy1 := TDropDummy.Create(Self);
+  DropDummy1.Name := 'DropDummy1';
+  DropDummy1.DragTypes := [];
+  DropDummy1.Target := self;
+  DropDummy1.WinTarget := 0;
+  DropDummy1.Enabled := true;
+
+  DropSource1 := TDropTextSource.Create(Self);
+  DropSource1.Name := 'DropSource1';
+  DropSource1.DragTypes := [dtCopy];
+  DropSource1.OnFeedback := DropSourceFeedback;
+
+  DropTextTarget1 := TDropTextTarget.Create(Self);
+  DropTextTarget1.Name := 'DropTextTarget1';
+  DropTextTarget1.DragTypes := [dtCopy, dtLink];
+  DropTextTarget1.OnDrop := DropTextTarget1Drop;
+  DropTextTarget1.Target := Edit1;
+  DropTextTarget1.WinTarget := 0;
+  DropTextTarget1.Enabled := true;
+
+  DropTextTarget2 := TDropTextTarget.Create(Self);
+  DropTextTarget2.Name := 'DropTextTarget2';
+  DropTextTarget2.DragTypes := [dtCopy];
+  DropTextTarget2.OnDrop := DropTextTarget2Drop;
+  DropTextTarget2.Target := Edit2;
+  DropTextTarget2.WinTarget := 0;
+  DropTextTarget2.Enabled := true;
+
   // Used for Bottom Text Drag example...
   // Hook edit window so we can intercept WM_LBUTTONDOWN messages!
   OldEdit2WindowProc := Edit2.WindowProc;

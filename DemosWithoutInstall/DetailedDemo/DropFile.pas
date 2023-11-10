@@ -11,7 +11,7 @@ uses
   DragDropFile,
   ImgList,
   ComCtrls, ActiveX, ShlObj, ComObj, Controls, ShellCtrls, Menus, ExtCtrls,
-  StdCtrls, Classes, Forms, Graphics, Windows;
+  StdCtrls, Classes, Forms, Graphics, Windows, System.ImageList;
 
 type
   // Hack to avoid having to install the design time shell controls
@@ -26,11 +26,8 @@ type
     Memo1: TMemo;
     btnClose: TButton;
     StatusBar1: TStatusBar;
-    DropFileTarget1: TDropFileTarget;
     Panel1: TPanel;
-    DropSource1: TDropFileSource;
     ImageListMultiFile: TImageList;
-    DropDummy1: TDropDummy;
     PopupMenu1: TPopupMenu;
     MenuCopy: TMenuItem;
     MenuCut: TMenuItem;
@@ -70,6 +67,10 @@ type
     property TargetPath: string read FTargetPath;
     property SourcePath: string read GetSourcePath;
     property IsEXEfile: boolean read FIsEXEfile;
+  private
+    DropDummy1: TDropDummy;
+    DropSource1: TDropFileSource;
+    DropFileTarget1: TDropFileTarget;
   end;
 
 var
@@ -174,6 +175,34 @@ end;
 
 procedure TFormFile.FormCreate(Sender: TObject);
 begin
+  DropDummy1 := TDropDummy.Create(Self);
+  DropDummy1.Name := 'DropDummy1';
+  DropDummy1.DragTypes := [];
+  DropDummy1.Target := self;
+  DropDummy1.WinTarget := 0;
+  DropDummy1.Enabled := true;
+
+  DropSource1 := TDropFileSource.Create(Self);
+  DropSource1.Name := 'DropSource1';
+  DropSource1.DragTypes := [dtCopy, dtMove, dtLink];
+  DropSource1.OnFeedback := DropSource1Feedback;
+  DropSource1.OnAfterDrop := DropSource1AfterDrop;
+  DropSource1.OnPaste := DropSource1Paste;
+  DropSource1.Images := ImageListMultiFile;
+  DropSource1.ShowImage := True;
+
+  DropFileTarget1 := TDropFileTarget.Create(Self);
+  DropFileTarget1.Name := 'DropFileTarget1';
+  DropFileTarget1.DragTypes := [dtCopy, dtMove, dtLink];
+  DropFileTarget1.GetDataOnEnter := True;
+  DropFileTarget1.OnEnter := DropFileTarget1Enter;
+  DropFileTarget1.OnDrop := DropFileTarget1Drop;
+  DropFileTarget1.OnGetDropEffect := DropFileTarget1GetDropEffect;
+  DropFileTarget1.Target := ListView1;
+  DropFileTarget1.WinTarget := 0;
+  DropFileTarget1.OptimizedMove := True;
+  DropFileTarget1.Enabled := true;
+
   // Load custom cursors...
   Screen.cursors[crCopy] := LoadCursor(hinstance, 'CUR_DRAG_COPY');
   Screen.cursors[crMove] := LoadCursor(hinstance, 'CUR_DRAG_MOVE');

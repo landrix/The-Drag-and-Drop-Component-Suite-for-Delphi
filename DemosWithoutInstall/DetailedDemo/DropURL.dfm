@@ -40,6 +40,7 @@ object FormURL: TFormURL
     Font.Height = -16
     Font.Name = 'MS Shell Dlg 2'
     Font.Style = [fsBold]
+    ParentBackground = False
     ParentFont = False
     TabOrder = 0
   end
@@ -124,6 +125,7 @@ object FormURL: TFormURL
     Font.Height = -16
     Font.Name = 'MS Shell Dlg 2'
     Font.Style = [fsBold]
+    ParentBackground = False
     ParentFont = False
     TabOrder = 5
   end
@@ -153,8 +155,8 @@ object FormURL: TFormURL
     object ImageSource2: TImage
       Left = 3
       Top = 3
-      Width = 50
-      Height = 50
+      Width = 52
+      Height = 48
       Hint = 'Right click for clipboard operations'
       Align = alClient
       AutoSize = True
@@ -279,6 +281,8 @@ object FormURL: TFormURL
       PopupMenu = PopupMenu1
       Transparent = True
       OnMouseDown = ImageMouseDown
+      ExplicitWidth = 50
+      ExplicitHeight = 50
     end
   end
   object PanelImageSource1: TPanel
@@ -291,8 +295,8 @@ object FormURL: TFormURL
     object ImageSource1: TImage
       Left = 3
       Top = 3
-      Width = 50
-      Height = 50
+      Width = 52
+      Height = 48
       Hint = 'Right click for clipboard operations'
       Align = alClient
       AutoSize = True
@@ -349,6 +353,8 @@ object FormURL: TFormURL
       PopupMenu = PopupMenu1
       Transparent = True
       OnMouseDown = ImageMouseDown
+      ExplicitWidth = 50
+      ExplicitHeight = 50
     end
   end
   object PanelURL: TPanel
@@ -387,7 +393,7 @@ object FormURL: TFormURL
     ShowImage = True
     ImageHotSpotX = 50
     ImageHotSpotY = 30
-    Left = 152
+    Left = 104
     Top = 96
   end
   object DropBMPSource1: TDropBMPSource
