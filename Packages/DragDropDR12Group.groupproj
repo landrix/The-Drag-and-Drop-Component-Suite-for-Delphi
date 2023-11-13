@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{1DD062A3-98B9-4FE5-A9D3-AC59840082C0}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="DragDropDR12.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="dclDragDropDR12.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="DragDropDR12">
+        <MSBuild Projects="DragDropDR12.dproj"/>
+    </Target>
+    <Target Name="DragDropDR12:Clean">
+        <MSBuild Projects="DragDropDR12.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DragDropDR12:Make">
+        <MSBuild Projects="DragDropDR12.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclDragDropDR12">
+        <MSBuild Projects="dclDragDropDR12.dproj"/>
+    </Target>
+    <Target Name="dclDragDropDR12:Clean">
+        <MSBuild Projects="dclDragDropDR12.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclDragDropDR12:Make">
+        <MSBuild Projects="dclDragDropDR12.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="DragDropDR12;dclDragDropDR12"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="DragDropDR12:Clean;dclDragDropDR12:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="DragDropDR12:Make;dclDragDropDR12:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
