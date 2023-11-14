@@ -1,9 +1,7 @@
 The Drag and Drop Component Suite for Delphi
-================================================
+============================================
 
-This component suite based on  
-The Drag and Drop Component Suite for Delphi  
-from Anders Melander    
+This component suite based on The Drag and Drop Component Suite for Delphi from Anders Melander    
 http://melander.dk/delphi/dragdrop  
 
 The Drag and Drop Component Suite Version 5.84 Released 11-nov-2023
@@ -12,6 +10,17 @@ The Drag and Drop Component Suite Version 5.84 Released 11-nov-2023
 © 2011-2023 Sven Harazim
 
 https://github.com/landrix/The-Drag-and-Drop-Component-Suite-for-Delphi  
+
+## Description
+
+The Drag and Drop Component Suite is a freeware VCL component library that enables your Delphi and C++Builder applications to support COM based drag and drop and integrate with the Windows clipboard.
+
+The drag and drop system that is built into the VCL, is limited in that it only supports drag and drop within the same application. If you need to drag data from your application to other applications (e.g. Word, Explorer or Outlook), or if you need to be able to accept data dropped from other application (e.g. the Explorer), you have to use COM based drag and drop. COM based drag and drop is an integral and very important part of the Windows user interface and the Drag and Drop Component Suite makes it very easy to leverage all the features of COM based drag and drop in your own Delphi and C++Builder applications.
+
+Every drag and drop operation involves two objects: A drop source and a drop target. The drop source provides the data to be dragged, and the drop target accepts the dragged data.
+Likewise there are basically two sets of components in the Drag and Drop Component Suite; Drop source components and drop target components. Most of the source and target components are specialized to handle just one type of data, but a few of the components supports a wider range of data types or are completely generic.
+
+In addition to the drag and drop components, the Drag and Drop Component Suite also includes components that can be used to build Windows Shell Extensions. While these components aren’t all related to Drag and Drop, they benefit from the Drag and Drop Component Suite framework and allow you to write Windows Shell Extensions with very little code. But most important; I had a lot of fun writing them :-).
 
 ## Table of Contents
 1. Supported platforms
