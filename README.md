@@ -6,10 +6,11 @@ The Drag and Drop Component Suite for Delphi
 from Anders Melander    
 http://melander.dk/delphi/dragdrop  
 
-The new Drag and Drop Component Suite Version 5.83
-Released 06-jul-2020  
+The Drag and Drop Component Suite Version 5.84 Released 11-nov-2023
+
 © 1997-2010 Anders Melander  
-© 2011-2023 Sven Harazim  
+© 2011-2023 Sven Harazim
+
 https://github.com/landrix/The-Drag-and-Drop-Component-Suite-for-Delphi  
 
 ## Table of Contents
