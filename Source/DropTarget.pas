@@ -215,7 +215,7 @@ type
     property ShowImage: boolean read FShowImage write SetShowImage default True;
     // Target
     property Target: TWinControl read GetTarget write SetTarget;
-    property WinTarget: HWND read GetWinTarget write SetWinTarget;
+    property WinTarget: HWND read GetWinTarget write SetWinTarget stored False;
     property MultiTarget: boolean read FMultiTarget write FMultiTarget default False;
     property AutoRegister: boolean read FAutoRegister write FAutoRegister default True;
     // Auto-scroll
