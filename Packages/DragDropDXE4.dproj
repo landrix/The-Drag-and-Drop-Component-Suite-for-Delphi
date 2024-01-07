@@ -46,15 +46,16 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_BplOutput>$(BDSCOMMONDIR)\Bpl</DCC_BplOutput>
+        <DCC_DcpOutput>$(BDSCOMMONDIR)\Dcp</DCC_DcpOutput>
+        <DCC_DcuOutput>$(BDSCOMMONDIR)\The-Drag-and-Drop-Component-Suite-for-Delphi\Dcu\$(Platform)_$(Config)</DCC_DcuOutput>
+        <DCC_UnitSearchPath>$(BDSCOMMONDIR)\The-Drag-and-Drop-Component-Suite-for-Delphi\Dcu\$(Platform)_$(Config);$(BDSCOMMONDIR)\Bpl;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <RuntimeOnlyPackage>true</RuntimeOnlyPackage>
         <GenPackage>true</GenPackage>
-        <DCC_BplOutput>..\Library\DXE4\$(Platform)_$(Config)</DCC_BplOutput>
         <GenDll>true</GenDll>
         <DCC_ImageBase>00400000</DCC_ImageBase>
         <DCC_F>false</DCC_F>
         <VerInfo_Locale>1031</VerInfo_Locale>
-        <DCC_DcpOutput>..\Library\DXE4\$(Platform)_$(Config)</DCC_DcpOutput>
-        <DCC_DcuOutput>..\Library\DXE4\$(Platform)_$(Config)</DCC_DcuOutput>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=;CFBundleDisplayName=;CFBundleIdentifier=;CFBundleVersion=;CFBundlePackageType=;CFBundleSignature=;CFBundleAllowMixedLocalizations=;CFBundleExecutable=</VerInfo_Keys>
         <DCC_K>false</DCC_K>
         <DCC_S>false</DCC_S>

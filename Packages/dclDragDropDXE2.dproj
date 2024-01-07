@@ -35,14 +35,16 @@
 			<Base>true</Base>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base)'!=''">
+      <DCC_BplOutput>$(BDSCOMMONDIR)\Bpl</DCC_BplOutput>
+      <DCC_DcpOutput>$(BDSCOMMONDIR)\Dcp</DCC_DcpOutput>
+      <DCC_DcuOutput>$(BDSCOMMONDIR)\The-Drag-and-Drop-Component-Suite-for-Delphi\Dcu\$(Platform)_$(Config)</DCC_DcuOutput>
+      <DCC_UnitSearchPath>$(BDSCOMMONDIR)\The-Drag-and-Drop-Component-Suite-for-Delphi\Dcu\$(Platform)_$(Config);$(BDSCOMMONDIR)\Bpl;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
 			<DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
 			<VerInfo_Locale>1033</VerInfo_Locale>
 			<GenPackage>true</GenPackage>
 			<DCC_UsePackage>rtl;$(DCC_UsePackage)</DCC_UsePackage>
 			<GenDll>true</GenDll>
 			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0</VerInfo_Keys>
-			<DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
-			<DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base_Win32)'!=''">
 			<VerInfo_Locale>1033</VerInfo_Locale>

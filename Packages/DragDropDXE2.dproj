@@ -40,6 +40,10 @@
 			<Base>true</Base>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base)'!=''">
+      <DCC_BplOutput>$(BDSCOMMONDIR)\Bpl</DCC_BplOutput>
+      <DCC_DcpOutput>$(BDSCOMMONDIR)\Dcp</DCC_DcpOutput>
+      <DCC_DcuOutput>$(BDSCOMMONDIR)\The-Drag-and-Drop-Component-Suite-for-Delphi\Dcu\$(Platform)_$(Config)</DCC_DcuOutput>
+      <DCC_UnitSearchPath>$(BDSCOMMONDIR)\The-Drag-and-Drop-Component-Suite-for-Delphi\Dcu\$(Platform)_$(Config);$(BDSCOMMONDIR)\Bpl;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
 			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
 			<DCC_TypedAtParameter>true</DCC_TypedAtParameter>
 			<DCC_Alignment>4</DCC_Alignment>

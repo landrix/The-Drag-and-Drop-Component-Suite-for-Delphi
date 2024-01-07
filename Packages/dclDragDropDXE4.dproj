@@ -30,9 +30,10 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <DCC_DcpOutput>..\Library\DXE4\$(Platform)_$(Config)</DCC_DcpOutput>
-        <DCC_DcuOutput>..\Library\DXE4\$(Platform)_$(Config)</DCC_DcuOutput>
-        <DCC_UnitSearchPath>..\Library\DXE4\$(Platform)_$(Config);$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_BplOutput>$(BDSCOMMONDIR)\Bpl</DCC_BplOutput>
+        <DCC_DcpOutput>$(BDSCOMMONDIR)\Dcp</DCC_DcpOutput>
+        <DCC_DcuOutput>$(BDSCOMMONDIR)\The-Drag-and-Drop-Component-Suite-for-Delphi\Dcu\$(Platform)_$(Config)</DCC_DcuOutput>
+        <DCC_UnitSearchPath>$(BDSCOMMONDIR)\The-Drag-and-Drop-Component-Suite-for-Delphi\Dcu\$(Platform)_$(Config);$(BDSCOMMONDIR)\Bpl;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <DCC_Description>Drag and Drop Component Suite</DCC_Description>
         <DCC_N>false</DCC_N>
         <DesignOnlyPackage>true</DesignOnlyPackage>
