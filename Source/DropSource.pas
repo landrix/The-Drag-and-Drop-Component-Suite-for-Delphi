@@ -56,7 +56,7 @@ type
     var ContinueDrop: Boolean) of object;
 
   //: TAfterDropEvent is fired after the target has finished processing a
-  // successfull drop.
+  // successful drop.
   // The Optimized parameter is True if the target either performed an operation
   // other than a move or performed an "optimized move". In either cases, the
   // source isn't required to delete the source data.
@@ -1509,7 +1509,7 @@ begin
         (CF.HasData) and
         (CF.SetDataToMedium(FormatEtcIn, Medium)) then
       begin
-        // Once data has been sucessfully transfered to the medium, we clear
+        // Once data has been successfully transfered to the medium, we clear
         // the data in the TClipboardFormat object in order to conserve
         // resources.
         CF.Clear;
@@ -1536,7 +1536,7 @@ begin
         (DataFormats[i].Assign(DataFormats[i].CompatibleFormats[j])) then
       begin
         DoOnSetData(DataFormats[i], DataFormats[i].CompatibleFormats[j]);
-        // Once data has been sucessfully transfered to the medium, we clear
+        // Once data has been successfully transfered to the medium, we clear
         // the data in the TClipboardFormat object in order to conserve
         // resources.
         DataFormats[i].CompatibleFormats[j].Clear;

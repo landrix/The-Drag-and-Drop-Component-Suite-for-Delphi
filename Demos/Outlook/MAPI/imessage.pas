@@ -47,7 +47,7 @@ type
 type
   TMSGCALLRELEASE = procedure (ulCallerData : ULONG;
     lpMessage : MapiDefs.IMessage); stdcall;
-  
+
 { DLL Entry Points (found in mapiu.dll) }
 
 (* OpenIMsgSession
@@ -80,7 +80,7 @@ procedure CloseIMsgSession (
  *
  *  NOTE 2:  The lpMapiSup parameter is optional.  If supplied then IMessage 
  *  will support the MAPI_DIALOG and ATTACH_DIALOG flags (by calling 
- *  support method: DoMCDialog) on CopyTo and DeleteAttach methods.  
+ *  support method: DoMCDialog) on CopyTo and DeleteAttach methods.
  *  If lpMapiSup is not supplied (i.e. passed 0) then dialog flags will be
  *  ignored.  If supplied then ModifyRecipients will attempt to convert 
  *  short term entryids to long term entryids (by calling support method 
@@ -155,20 +155,20 @@ const
 const
   PROPATTR_MANDATORY = (ULONG($00000001));
   PROPATTR_READABLE = (ULONG($00000002));
-  PROPATTR_WRITEABLE = (ULONG($00000004));
+  PROPATTR_WRITABLE = (ULONG($00000004));
   PROPATTR_NOT_PRESENT = (ULONG($00000008));
 
 { Attribute Array }
 
 type
-  TSPropAttrArray =     
+  TSPropAttrArray =
     record
       cValues : ULONG;
       aPropAttr : array[0..MAPI_DIM - 1] of ULONG;
     end;
-    
+
   PSPropAttrArray = ^TSPropAttrArray;
-  
+
 (*  GetAttribIMsgOnIStg - To get attributes on properties
  *
  *  This call is provided because there is no method of IMAPIPropSet to allow

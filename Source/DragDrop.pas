@@ -1395,7 +1395,7 @@ begin
       begin
         if (Assign(CompatibleFormats[i])) then
         begin
-          // Once data has been sucessfully transfered to the TDataFormat object,
+          // Once data has been successfully transfered to the TDataFormat object,
           // we clear the data in the TClipboardFormat object in order to conserve
           // resources.
           CompatibleFormats[i].Clear;
