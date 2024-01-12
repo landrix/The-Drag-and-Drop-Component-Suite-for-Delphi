@@ -350,7 +350,7 @@ begin
   end;
 
   // Only allow a Copy or Move operation...
-  // otherwise stop and signal to source that no drop occured.
+  // otherwise stop and signal to source that no drop occurred.
   if Effect = DROPEFFECT_NONE then
     exit;
 

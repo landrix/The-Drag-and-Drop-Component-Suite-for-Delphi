@@ -186,7 +186,7 @@ var
 resourcestring
   sRegStr = 'Register COM server';
   sUnregStr = 'Unregister COM server';
-  sRegSuccessful = '  Successfull';
+  sRegSuccessful = '  Successful';
   sRegFailed = '  Failed: %s';
 const
   MsgTitle: array[TRegAction] of string = (sRegStr, sUnregStr);
