@@ -3,7 +3,7 @@ object FormURL: TFormURL
   Top = 147
   BorderStyle = bsDialog
   Caption = 'Drag '#39'n'#39' Drop  Demo - URL & Bitmap'
-  ClientHeight = 373
+  ClientHeight = 400
   ClientWidth = 372
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
@@ -11,12 +11,10 @@ object FormURL: TFormURL
   Font.Height = -11
   Font.Name = 'MS Shell Dlg 2'
   Font.Style = []
-  OldCreateOrder = True
   Position = poMainFormCenter
   ShowHint = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  PixelsPerInch = 96
   TextHeight = 13
   object LabelURL: TLabel
     Left = 13
@@ -45,8 +43,8 @@ object FormURL: TFormURL
     TabOrder = 0
   end
   object ButtonClose: TButton
-    Left = 10
-    Top = 317
+    Left = 8
+    Top = 345
     Width = 350
     Height = 30
     Cancel = True
@@ -62,7 +60,7 @@ object FormURL: TFormURL
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 354
+    Top = 381
     Width = 372
     Height = 19
     Panels = <>
@@ -92,8 +90,8 @@ object FormURL: TFormURL
     WantReturns = False
   end
   object PanelImageTarget: TPanel
-    Left = 237
-    Top = 255
+    Left = 235
+    Top = 283
     Width = 58
     Height = 54
     BorderWidth = 2
@@ -111,8 +109,8 @@ object FormURL: TFormURL
     end
   end
   object Panel3: TPanel
-    Left = 10
-    Top = 156
+    Left = 8
+    Top = 184
     Width = 350
     Height = 30
     BevelOuter = bvNone
@@ -130,8 +128,8 @@ object FormURL: TFormURL
     TabOrder = 5
   end
   object Memo1: TMemo
-    Left = 9
-    Top = 198
+    Left = 7
+    Top = 226
     Width = 350
     Height = 51
     TabStop = False
@@ -146,8 +144,8 @@ object FormURL: TFormURL
     WantReturns = False
   end
   object PanelImageSource2: TPanel
-    Left = 114
-    Top = 255
+    Left = 112
+    Top = 283
     Width = 58
     Height = 54
     BorderWidth = 2
@@ -281,13 +279,11 @@ object FormURL: TFormURL
       PopupMenu = PopupMenu1
       Transparent = True
       OnMouseDown = ImageMouseDown
-      ExplicitWidth = 50
-      ExplicitHeight = 50
     end
   end
   object PanelImageSource1: TPanel
-    Left = 53
-    Top = 255
+    Left = 51
+    Top = 283
     Width = 58
     Height = 54
     BorderWidth = 2
@@ -353,8 +349,6 @@ object FormURL: TFormURL
       PopupMenu = PopupMenu1
       Transparent = True
       OnMouseDown = ImageMouseDown
-      ExplicitWidth = 50
-      ExplicitHeight = 50
     end
   end
   object PanelURL: TPanel
@@ -378,59 +372,26 @@ object FormURL: TFormURL
     TabOrder = 9
     OnMouseDown = URLMouseDown
   end
-  object DropURLTarget1: TDropURLTarget
-    DragTypes = [dtCopy, dtLink]
-    GetDataOnEnter = True
-    OnDrop = DropURLTarget1Drop
-    WinTarget = 0
-    Left = 184
-    Top = 96
-  end
-  object DropURLSource1: TDropURLSource
-    DragTypes = [dtCopy, dtLink]
-    Images = ImageList1
-    ImageIndex = 1
-    ShowImage = True
-    ImageHotSpotX = 50
-    ImageHotSpotY = 30
-    Left = 104
-    Top = 96
-  end
-  object DropBMPSource1: TDropBMPSource
-    DragTypes = [dtCopy, dtMove]
-    OnPaste = DropBMPSource1Paste
-    Images = ImageList1
-    ShowImage = True
-    ImageHotSpotX = 25
-    ImageHotSpotY = 25
-    Left = 176
-    Top = 256
-  end
-  object DropBMPTarget1: TDropBMPTarget
-    DragTypes = [dtCopy, dtMove]
-    OnDrop = DropBMPTarget1Drop
-    Target = PanelImageTarget
-    WinTarget = 0
-    Left = 304
-    Top = 256
+  object Button1: TButton
+    Left = 13
+    Top = 153
+    Width = 124
+    Height = 25
+    Caption = 'Paste from Clipboard'
+    TabOrder = 10
+    OnClick = Button1Click
   end
   object ImageList1: TImageList
     BkColor = clFuchsia
     Height = 50
     Width = 50
-    Left = 208
-    Top = 256
-  end
-  object DropDummy1: TDropDummy
-    DragTypes = []
-    WinTarget = 0
-    Left = 328
-    Top = 8
+    Left = 206
+    Top = 284
   end
   object PopupMenu1: TPopupMenu
     OnPopup = PopupMenu1Popup
-    Left = 176
-    Top = 288
+    Left = 174
+    Top = 316
     object MenuCopy: TMenuItem
       Caption = 'Copy'
       Enabled = False

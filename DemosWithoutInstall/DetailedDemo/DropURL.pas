@@ -20,10 +20,6 @@ type
     ButtonClose: TButton;
     StatusBar1: TStatusBar;
     Memo2: TMemo;
-    DropURLTarget1: TDropURLTarget;
-    DropURLSource1: TDropURLSource;
-    DropBMPSource1: TDropBMPSource;
-    DropBMPTarget1: TDropBMPTarget;
     PanelImageTarget: TPanel;
     ImageTarget: TImage;
     Panel3: TPanel;
@@ -34,13 +30,13 @@ type
     ImageList1: TImageList;
     PanelImageSource1: TPanel;
     ImageSource1: TImage;
-    DropDummy1: TDropDummy;
     PopupMenu1: TPopupMenu;
     MenuCopy: TMenuItem;
     MenuCut: TMenuItem;
     N1: TMenuItem;
     MenuPaste: TMenuItem;
     PanelURL: TPanel;
+    Button1: TButton;
     procedure ButtonCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -48,18 +44,24 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure ImageMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure MenuCutOrCopyClick(Sender: TObject);
+    procedure MenuPasteClick(Sender: TObject);
+    procedure PopupMenu1Popup(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    PasteImage: TImage; // Remembers which TImage is the source of a copy/paste
+  public
+    DropURLTarget1: TDropURLTarget;
+    DropURLSource1: TDropURLSource;
+    DropBMPSource1: TDropBMPSource;
+    DropBMPTarget1: TDropBMPTarget;
+    DropDummy1: TDropDummy;
     procedure DropURLTarget1Drop(Sender: TObject; ShiftState: TShiftState;
       Point: TPoint; var Effect: Integer);
     procedure DropBMPTarget1Drop(Sender: TObject; ShiftState: TShiftState;
       Point: TPoint; var Effect: Integer);
-    procedure MenuCutOrCopyClick(Sender: TObject);
-    procedure MenuPasteClick(Sender: TObject);
-    procedure PopupMenu1Popup(Sender: TObject);
     procedure DropBMPSource1Paste(Sender: TObject; Action: TDragResult;
       DeleteOnPaste: Boolean);
-  private
-    PasteImage: TImage; // Remembers which TImage is the source of a copy/paste
-  public
   end;
 
 var
@@ -82,6 +84,38 @@ end;
 
 procedure TFormURL.FormCreate(Sender: TObject);
 begin
+  DropURLTarget1:= TDropURLTarget.Create(self);
+  DropURLTarget1.DragTypes := [dtCopy, dtLink];
+  DropURLTarget1.GetDataOnEnter := True;
+  DropURLTarget1.OnDrop := DropURLTarget1Drop;
+  DropURLTarget1.WinTarget := 0;
+
+  DropURLSource1:= TDropURLSource.Create(self);
+  DropURLSource1.DragTypes := [dtCopy, dtLink];
+  DropURLSource1.Images := ImageList1;
+  DropURLSource1.ImageIndex := 1;
+  DropURLSource1.ShowImage := True;
+  DropURLSource1.ImageHotSpotX := 50;
+  DropURLSource1.ImageHotSpotY := 30;
+
+  DropBMPSource1:= TDropBMPSource.Create(self);
+  DropBMPSource1.DragTypes := [dtCopy, dtMove];
+  DropBMPSource1.OnPaste := DropBMPSource1Paste;
+  DropBMPSource1.Images := ImageList1;
+  DropBMPSource1.ShowImage := True;
+  DropBMPSource1.ImageHotSpotX := 25;
+  DropBMPSource1.ImageHotSpotY := 25;
+
+  DropBMPTarget1:= TDropBMPTarget.Create(self);
+  DropBMPTarget1.DragTypes := [dtCopy, dtMove];
+  DropBMPTarget1.OnDrop := DropBMPTarget1Drop;
+  DropBMPTarget1.Target := PanelImageTarget;
+  DropBMPTarget1.WinTarget := 0;
+
+  DropDummy1:= TDropDummy.Create(self);
+  DropDummy1.DragTypes := [];
+  DropDummy1.WinTarget := 0;
+
   // Note: This is an example of "manual" target registration. We could just
   // as well have assigned the TDropTarget.Target property at design-time to
   // register the drop targets.
@@ -105,6 +139,11 @@ begin
   DropURLTarget1.UnRegister;
   DropBMPTarget1.UnRegister;
   DropDummy1.UnRegister;
+end;
+
+procedure TFormURL.Button1Click(Sender: TObject);
+begin
+  DropURLTarget1.PasteFromClipboard;
 end;
 
 procedure TFormURL.ButtonCloseClick(Sender: TObject);
