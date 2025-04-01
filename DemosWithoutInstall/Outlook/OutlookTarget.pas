@@ -828,7 +828,7 @@ begin
           // Another way to do it:
           // DestStream := TFixedStreamAdapter.Create(TFileStream.Create(FileName, fmCreate), soOwned);
 
-          SourceStream.CopyTo(DestStream, 0, Dummy, Dummy);
+          SourceStream.CopyTo(DestStream, -1, Dummy, Dummy);
           DestStream := nil;
 
           Execute(String(FileName));
