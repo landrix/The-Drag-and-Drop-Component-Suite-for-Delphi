@@ -778,6 +778,7 @@ var
   FileName: AnsiString;
   SourceStream, DestStream: IStream;
   Dummy: {$if CompilerVersion < 29}Int64{$else}UInt64{$ifend};
+  StatStg: TStatStg;
 
   Msg: IMessage;
 begin
@@ -815,7 +816,8 @@ begin
           // Another way to do it:
           // DestStream := TFixedStreamAdapter.Create(TFileStream.Create(FileName, fmCreate), soOwned);
 
-          SourceStream.CopyTo(DestStream, -1, Dummy, Dummy);
+          SourceStream.Stat(StatStg,STATFLAG_DEFAULT);
+          SourceStream.CopyTo(DestStream, StatStg.cbSize, Dummy, Dummy);
           DestStream := nil;
 
           Execute(String(FileName));
