@@ -1,6 +1,10 @@
 The Drag and Drop Component Suite for Delphi
 ============================================
 
+**Anders Melander is back. Here's the link to the original repository. I'll then withdraw from this repository. Contributions are still welcome.**
+
+https://github.com/andersmelander/Drag-and-Drop-Component-Suite
+
 This component suite based on The Drag and Drop Component Suite for Delphi from Anders Melander    
 http://melander.dk/delphi/dragdrop  
 
